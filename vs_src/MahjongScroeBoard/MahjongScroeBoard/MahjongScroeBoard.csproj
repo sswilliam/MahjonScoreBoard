@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B47B13CD-A318-4FD5-BD11-D07FF005C896}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MahjongScroeBoard</RootNamespace>
+    <AssemblyName>MahjongScroeBoard</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="testdata\Capture11772.jpg" />
+    <Content Include="testdata\Capture15808.jpg" />
+    <Content Include="testdata\Capture17710.jpg" />
+    <Content Include="testdata\Capture1835.jpg" />
+    <Content Include="testdata\Capture28327.jpg" />
+    <Content Include="testdata\Capture31615.jpg" />
+    <Content Include="testdata\Capture31952.jpg" />
+    <Content Include="testdata\Capture40784.jpg" />
+    <Content Include="testdata\Capture41065.jpg" />
+    <Content Include="testdata\Capture45177.jpg" />
+    <Content Include="testdata\Capture45520.jpg" />
+    <Content Include="testdata\Capture47493.jpg" />
+    <Content Include="testdata\Capture52237.jpg" />
+    <Content Include="testdata\Capture52941.jpg" />
+    <Content Include="testdata\Capture53572.jpg" />
+    <Content Include="testdata\Capture55198.jpg" />
+    <Content Include="testdata\Capture56412.jpg" />
+    <Content Include="testdata\Capture56586.jpg" />
+    <Content Include="testdata\Capture5664.jpg" />
+    <Content Include="testdata\Capture57442.jpg" />
+    <Content Include="testdata\Capture57515.jpg" />
+    <Content Include="testdata\Capture57566.jpg" />
+    <Content Include="testdata\Capture60406.jpg" />
+    <Content Include="testdata\Capture60802.jpg" />
+    <Content Include="testdata\Capture62065.jpg" />
+    <Content Include="testdata\Capture62318.jpg" />
+    <Content Include="testdata\Capture63287.jpg" />
+    <Content Include="testdata\Capture66097.jpg" />
+    <Content Include="testdata\Capture67189.jpg" />
+    <Content Include="testdata\Capture68568.jpg" />
+    <Content Include="testdata\Capture69703.jpg" />
+    <Content Include="testdata\Capture75312.jpg" />
+    <Content Include="testdata\Capture77510.jpg" />
+    <Content Include="testdata\Capture78208.jpg" />
+    <Content Include="testdata\Capture81213.jpg" />
+    <Content Include="testdata\Capture81987.jpg" />
+    <Content Include="testdata\Capture8285.jpg" />
+    <Content Include="testdata\Capture83175.jpg" />
+    <Content Include="testdata\Capture84369.jpg" />
+    <Content Include="testdata\Capture86614.jpg" />
+    <Content Include="testdata\Capture91127.jpg" />
+    <Content Include="testdata\Capture93302.jpg" />
+    <Content Include="testdata\Capture98528.jpg" />
+    <Content Include="testdata\Capture99021.jpg" />
+    <Content Include="testdata\Capture99764.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
