@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Game.cs" />
+    <Compile Include="EntryUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EntryUI.Designer.cs">
+      <DependentUpon>EntryUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManualScoreBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManualScoreBoard.Designer.cs">
+      <DependentUpon>ManualScoreBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ScoreBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScoreBoard.Designer.cs">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SnapshotTaker.cs" />
+    <Compile Include="ViewManager.cs" />
+    <EmbeddedResource Include="EntryUI.resx">
+      <DependentUpon>EntryUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManualScoreBoard.resx">
+      <DependentUpon>ManualScoreBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +84,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScoreBoard.resx">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
