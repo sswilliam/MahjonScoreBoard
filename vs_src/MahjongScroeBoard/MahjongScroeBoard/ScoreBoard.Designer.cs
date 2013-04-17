@@ -1228,7 +1228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 625);
+            this.ClientSize = new System.Drawing.Size(459, 627);
             this.Controls.Add(this.historyBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.saveBtn);
@@ -1249,6 +1249,10 @@
             this.Controls.Add(this.dongGroup);
             this.Controls.Add(this.dongName);
             this.Controls.Add(this.dongLabel);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(475, 665);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(475, 665);
             this.Name = "ScoreBoard";
             this.Text = "Mahjong Score Board";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScoreBoard_FormClosing);

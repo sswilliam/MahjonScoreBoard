@@ -79,13 +79,29 @@ namespace MahjongScroeBoard
         private static extern int GetWindowRect(IntPtr hwnd, out   Rectangle lpRect);
 
 
-        public static void takeImage()
+        public static Image takeImage()
         {
             IntPtr targetWindow = FindWindow(null, "Windows Task Manager");
             Rectangle rect = new Rectangle();
             GetWindowRect(targetWindow,out rect);
+            Image bt = (Image)GetWindow(targetWindow, rect.Width - rect.X, rect.Height - rect.Y);
+            bt.Save("test.jpg", ImageFormat.Jpeg);
+            return bt;
             //Image 
 
+        }
+
+        public static Bitmap GetWindow(IntPtr hWnd, int width, int height)
+        {
+            IntPtr hscrdc = GetWindowDC(hWnd);
+            IntPtr hbitmap = CreateCompatibleBitmap(hscrdc, width, height);
+            IntPtr hmemdc = CreateCompatibleDC(hscrdc);
+            SelectObject(hmemdc, hbitmap);
+            PrintWindow(hWnd, hmemdc, 0);
+            Bitmap bmp = Bitmap.FromHbitmap(hbitmap);
+            DeleteDC(hscrdc);
+            DeleteDC(hmemdc);
+            return bmp;
         }
     }
 }

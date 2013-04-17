@@ -147,7 +147,9 @@
             this.Controls.Add(this.xiBtn);
             this.Controls.Add(this.nanbtn);
             this.Controls.Add(this.dongBtn);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(430, 385);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(430, 385);
             this.Name = "EntryUI";
             this.Text = "Mahjone Score Board";

@@ -37,7 +37,12 @@ namespace MahjongScroeBoard
                 manuals[i].Click += new System.EventHandler(this.manual_Click);
                 
             }
-            scores = new TextBox[][]{
+
+            for (int i = 0; i < snapshots.Length; i++)
+            {
+                snapshots[i].Click += new System.EventHandler(this.snapshot_Click);
+            }
+                scores = new TextBox[][]{
                 new TextBox[]{dong1,nan1,xi1,bei1},
                 new TextBox[]{dong2,nan2,xi2,bei2},
                 new TextBox[]{dong3,nan3,xi3,bei3},
@@ -205,6 +210,13 @@ namespace MahjongScroeBoard
             ViewManager.manualScroeBoardUI.resetAndDisplay(index - 1);
         }
 
-        
+        private void snapshot_Click(object sender, EventArgs e)
+        {
+            Button target = (Button)sender;
+            String number = target.Name.Substring(8);
+            int index = Int32.Parse(number);
+            Console.WriteLine("curent " + (index - 1));
+            ViewManager.snapshotScoreBoardUI.resetAndDisplay(index - 1);
+        }
     }
 }

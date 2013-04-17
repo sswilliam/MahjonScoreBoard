@@ -10,5 +10,6 @@ namespace MahjongScroeBoard
         public static EntryUI entryUI;
         public static ScoreBoard scoreBoardUI;
         public static ManualScoreBoard manualScroeBoardUI;
+        public static SnapshotScoreBoard snapshotScoreBoardUI;
     }
 }

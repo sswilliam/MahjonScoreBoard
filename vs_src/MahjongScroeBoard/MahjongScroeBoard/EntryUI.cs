@@ -22,6 +22,7 @@ namespace MahjongScroeBoard
             ViewManager.entryUI = this;
             ViewManager.manualScroeBoardUI = new ManualScoreBoard();
             ViewManager.scoreBoardUI = new ScoreBoard();
+            ViewManager.snapshotScoreBoardUI = new SnapshotScoreBoard();
         }
         
         private void fightBtn_Click(object sender, EventArgs e)

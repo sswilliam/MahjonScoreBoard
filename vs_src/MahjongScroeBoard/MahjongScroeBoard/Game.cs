@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace MahjongScroeBoard
 {
     class Game
     {
         private static Game game = new Game();
-        private String roundPath;
+        public String roundPath;
         public String dong;
         public String nan;
         public String xi;
@@ -24,7 +25,8 @@ namespace MahjongScroeBoard
         }
         public void init()
         {
-            roundPath = "";
+            roundPath = "scores\\"+generateID()+"\\";
+            Directory.CreateDirectory(roundPath);
             dong = "";
             nan = "";
             xi = "";
@@ -37,6 +39,25 @@ namespace MahjongScroeBoard
                     gameInfo[i, j] = 0;
                 }
             }
+        }
+        public static string generateID()
+        {
+            StringBuilder sb = new StringBuilder();
+            DateTime dt = DateTime.Now;
+            sb.Append(dt.Year);
+            sb.Append('_');
+            sb.Append(dt.Month);
+            sb.Append('_');
+            sb.Append(dt.Day);
+            sb.Append('_');
+            sb.Append(dt.Hour);
+            sb.Append('_');
+            sb.Append(dt.Minute);
+            sb.Append('_');
+            sb.Append(dt.Second);
+            sb.Append('_');
+            sb.Append(dt.Millisecond);
+            return sb.ToString();
         }
 
     }

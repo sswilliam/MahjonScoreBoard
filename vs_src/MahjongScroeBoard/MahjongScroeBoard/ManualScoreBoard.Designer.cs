@@ -148,7 +148,9 @@
             this.Controls.Add(this.selfMo);
             this.Controls.Add(this.winnerName);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(300, 183);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 183);
             this.Name = "ManualScoreBoard";
             this.Text = "Mahjong Score Board";
