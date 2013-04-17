@@ -218,5 +218,10 @@ namespace MahjongScroeBoard
             Console.WriteLine("curent " + (index - 1));
             ViewManager.snapshotScoreBoardUI.resetAndDisplay(index - 1);
         }
+
+        private void snapshot1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

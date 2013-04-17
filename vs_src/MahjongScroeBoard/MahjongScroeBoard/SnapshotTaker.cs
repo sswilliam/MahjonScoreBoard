@@ -81,7 +81,7 @@ namespace MahjongScroeBoard
 
         public static Image takeImage()
         {
-            IntPtr targetWindow = FindWindow(null, "Windows Task Manager");
+            IntPtr targetWindow = FindWindow(null, "QQ麻将角色版");
             Rectangle rect = new Rectangle();
             GetWindowRect(targetWindow,out rect);
             Image bt = (Image)GetWindow(targetWindow, rect.Width - rect.X, rect.Height - rect.Y);
