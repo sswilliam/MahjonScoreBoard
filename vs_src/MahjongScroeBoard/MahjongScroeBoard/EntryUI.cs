@@ -65,6 +65,7 @@ namespace MahjongScroeBoard
             entryInfo.Text = "";
             ViewManager.entryUI.fade();
             ViewManager.manualScroeBoardUI.refreshDataSet();
+            ViewManager.snapshotScoreBoardUI.refreshDataSet();
             ViewManager.scoreBoardUI.resetAndDisplay();
 
         }
