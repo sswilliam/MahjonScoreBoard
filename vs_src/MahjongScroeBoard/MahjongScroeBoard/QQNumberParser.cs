@@ -46,6 +46,10 @@ namespace MahjongScroeBoard
                 }
 
             }
+            if (currentRate < 0.8)
+            {
+                return 0;
+            }
             return currentNumber;
         }
         private static double getmatchRate(Bitmap source, Bitmap target)

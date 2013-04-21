@@ -17,6 +17,7 @@ namespace MahjongScroeBoard
         private int targetRow = 0;
         private Bitmap cachedImage;
         private TextBox[] scoreViews;
+        private int[] scoresContents = { 0, 0, 0, 0 };
         public SnapshotScoreBoard()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace MahjongScroeBoard
             this.targetRow = targetRow;
             //this.cachedImage = (Bitmap)SnapshotTaker.takeImage();
             this.cachedImage = new Bitmap("t"+targetRow+".jpg");
-            Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
+           // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
             this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
             //Bitmap core = new Bitmap(410, 435, PixelFormat.Format24bppRgb);
             int outwidth = this.cachedImage.Width - 190;
@@ -103,7 +104,7 @@ namespace MahjongScroeBoard
                             isBlack = true;
                             Rectangle speiteBlock = new Rectangle(beginX,0,w - beginX,20);
                             Bitmap spiteItem = cutBlackHeadAndTail(bwScore.Clone(speiteBlock, PixelFormat.Format24bppRgb));
-                            spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
+                            //spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
                             spiltedImages.Add(spiteItem);
                         }
                     }
@@ -124,9 +125,10 @@ namespace MahjongScroeBoard
                     }
                     Console.WriteLine("final score " + totalNumber);
                     scoreViews[i].Text = ""+totalNumber;
+                    scoresContents[i] = totalNumber;
                 }
                     
-                bwScore.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + ".bmp", ImageFormat.Bmp);
+               // bwScore.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + ".bmp", ImageFormat.Bmp);
             }
 
             Console.WriteLine("------------------------------------------------");
@@ -193,6 +195,112 @@ namespace MahjongScroeBoard
         private void saveBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public Boolean validateNumbers()
+        {
+            int win = 0;
+            int lose1 = 0;
+            int lose2 = 0;
+            int lose3 = 0;
+            int positiveNumber = 0;
+            int negitaveNumber = 0;
+            int negitage8cont = 0;
+            if(scoresContents[0] == 0 && scoresContents[1]==0 && scoresContents[2] == 0 && scoresContents[3] == 0){
+                this.snapshotInfo.Text = "未检测到任何数字，请确认是荒庄";
+                return true;
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (scoresContents[i] >31)
+                {
+                    positiveNumber++;
+                    win = scoresContents[i];
+                }
+                if (scoresContents[i] < -7)
+                {
+                    negitaveNumber++;
+                    if(scoresContents[i] == -8){
+                        negitage8cont ++;
+                    }
+                }
+            }
+            if (positiveNumber != 1)
+            {
+                this.snapshotInfo.Text = "未检测到获胜番数";
+                return false;
+            }
+            if (negitaveNumber != -3)
+            {
+                this.snapshotInfo.Text = "未检测到三家失败";
+                return false;
+            }
+            if (negitage8cont != 2 && negitage8cont != 0)
+            {
+
+                this.snapshotInfo.Text = "不是自摸也不是点炮";
+                return false;
+            }
+            int dianScore = 0; ;
+            if (negitage8cont == 2)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (scoresContents[i] < -8)
+                    {
+                        dianScore = scoresContents[i];
+                        break;
+                    }
+                }
+                if (win - 8 - 8 + dianScore == 0)
+                {
+                    return true;
+                }
+                else
+                {
+
+                    this.snapshotInfo.Text = "输赢只和不为0";
+                    return false;
+                }
+            }
+            if (negitage8cont == 0)
+            {
+                int zimolose = 0;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (scoresContents[i] < -15)
+                    {
+                        if (zimolose == 0)
+                        {
+                            zimolose = scoresContents[i];
+                        }
+                        else
+                        {
+                            if (scoresContents[i] != zimolose)
+                            {
+
+                                this.snapshotInfo.Text = "自摸的番数不等";
+                                return false;
+                            }
+                        }
+                    }
+                }
+                if (win + zimolose + zimolose + zimolose == 0)
+                {
+
+                    return true;
+                }
+                else
+                {
+
+                    this.snapshotInfo.Text = "输赢只和不为0";
+                    return false;
+                }
+            }
+            
+
+                return false;
         }
 
         public void refreshDataSet()
