@@ -30,8 +30,8 @@ namespace MahjongScroeBoard
         public void resetAndDisplay(int targetRow)
         {
             this.targetRow = targetRow;
-            //this.cachedImage = (Bitmap)SnapshotTaker.takeImage();
-            this.cachedImage = new Bitmap("t"+targetRow+".jpg");
+            this.cachedImage = (Bitmap)SnapshotTaker.takeImage();
+            //this.cachedImage = new Bitmap("t"+targetRow+".jpg");
            // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
             this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
             //Bitmap core = new Bitmap(410, 435, PixelFormat.Format24bppRgb);
