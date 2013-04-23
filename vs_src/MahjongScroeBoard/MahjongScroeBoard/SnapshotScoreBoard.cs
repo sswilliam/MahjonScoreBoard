@@ -104,14 +104,14 @@ namespace MahjongScroeBoard
                             isBlack = true;
                             Rectangle speiteBlock = new Rectangle(beginX,0,w - beginX,20);
                             Bitmap spiteItem = cutBlackHeadAndTail(bwScore.Clone(speiteBlock, PixelFormat.Format24bppRgb));
-                            //spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
+                            spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
                             spiltedImages.Add(spiteItem);
                         }
                     }
                 }
 
                 object[] datas = spiltedImages.ToArray();
-                if (datas.Length > 1)
+                if (datas.Length < 1)
                 {
                     int first = QQNumberParser.getNumber((Bitmap)datas[0]);
                     int totalNumber;
