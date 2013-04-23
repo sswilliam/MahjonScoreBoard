@@ -78,19 +78,57 @@ namespace MahjongScroeBoard
         [DllImport("user32.dll", EntryPoint = "GetWindowRect")]
         private static extern int GetWindowRect(IntPtr hwnd, out   Rectangle lpRect);
 
-
-        public static Image takeImage()
+        public static String processName = "";
+        public static int tryTime = 0;
+        public static Bitmap takeImage()
         {
-            IntPtr targetWindow = FindWindow(null, "麻将角色版");
+            if (processName.Length == 0)
+            {
+                processName = getMahjongProcessName();
+                if (processName.Length == 0)
+                {
+                    return null;
+                }
+            }
+            IntPtr targetWindow = FindWindow(null, processName);
             Rectangle rect = new Rectangle();
             GetWindowRect(targetWindow,out rect);
-            Image bt = (Image)GetWindow(targetWindow, rect.Width - rect.X, rect.Height - rect.Y);
+            Bitmap bt = GetWindow(targetWindow, rect.Width - rect.X, rect.Height - rect.Y);
+            if (bt.Width < 100)
+            {
+                processName = getMahjongProcessName();
+                if (processName.Length == 0)
+                {
+                    return null;
+                }
+                targetWindow = FindWindow(null, processName);
+                rect = new Rectangle();
+                GetWindowRect(targetWindow, out rect);
+                bt = GetWindow(targetWindow, rect.Width - rect.X, rect.Height - rect.Y);
+                bt.Save("test.jpg", ImageFormat.Jpeg);
+                if (bt.Width < 100)
+                {
+                    return null;
+                }
+
+                bt.Save("test.jpg", ImageFormat.Jpeg);
+                return bt;
+            }
             bt.Save("test.jpg", ImageFormat.Jpeg);
             return bt;
             //Image 
 
         }
 
+        public static String getMahjongProcessName()
+        {
+            Process[] processes = Process.GetProcesses();
+            for (int i = 0; i < processes.Length; i++)
+            {
+                Console.WriteLine(processes[i].ProcessName);
+            }
+            return "";
+        }
         public static Bitmap GetWindow(IntPtr hWnd, int width, int height)
         {
             IntPtr hscrdc = GetWindowDC(hWnd);

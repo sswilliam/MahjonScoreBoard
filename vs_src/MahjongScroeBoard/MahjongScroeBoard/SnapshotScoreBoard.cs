@@ -27,13 +27,13 @@ namespace MahjongScroeBoard
 
         }
 
-        public void resetAndDisplay(int targetRow)
+        public void resetAndDisplay(int targetRow,Bitmap sourceImage)
         {
             this.targetRow = targetRow;
-            this.cachedImage = (Bitmap)SnapshotTaker.takeImage();
+            this.cachedImage = sourceImage;
             //this.cachedImage = new Bitmap("t"+targetRow+".jpg");
            // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
-            this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
+            //this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
             //Bitmap core = new Bitmap(410, 435, PixelFormat.Format24bppRgb);
             int outwidth = this.cachedImage.Width - 190;
             int outHeight = this.cachedImage.Height;
@@ -44,7 +44,7 @@ namespace MahjongScroeBoard
             //Graphics g = Graphics.FromImage(core);
             //g.DrawImage(this.cachedImage, rg);
             this.snapshotContent.Image = core;
-            core.Save(Game.getInstance().roundPath + (targetRow + 1) + "s.jpg", ImageFormat.Jpeg);
+            //core.Save(Game.getInstance().roundPath + (targetRow + 1) + "s.jpg", ImageFormat.Jpeg);
 
             for (int i = 0; i < 4; i++)
             {
@@ -104,14 +104,14 @@ namespace MahjongScroeBoard
                             isBlack = true;
                             Rectangle speiteBlock = new Rectangle(beginX,0,w - beginX,20);
                             Bitmap spiteItem = cutBlackHeadAndTail(bwScore.Clone(speiteBlock, PixelFormat.Format24bppRgb));
-                            spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
+                            //spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
                             spiltedImages.Add(spiteItem);
                         }
                     }
                 }
 
                 object[] datas = spiltedImages.ToArray();
-                if (datas.Length < 1)
+                if (datas.Length > 1)
                 {
                     int first = QQNumberParser.getNumber((Bitmap)datas[0]);
                     int totalNumber;
@@ -195,6 +195,24 @@ namespace MahjongScroeBoard
         private void saveBtn_Click(object sender, EventArgs e)
         {
 
+            this.snapshotInfo.Text = "";
+            try
+            {
+                int number1 = Int32.Parse(this.dongScore.Text);
+                int number2 = Int32.Parse(this.nanScore.Text);
+                int number3 = Int32.Parse(this.xiScore.Text);
+                int number4 = Int32.Parse(this.beiScore.Text);
+                scoresContents[0] = number1;
+                scoresContents[1] = number2;
+                scoresContents[2] = number3;
+                scoresContents[3] = number4;
+
+            }
+            catch (Exception ex)
+            {
+
+                this.snapshotInfo.Text = "请输入整数";
+            }
         }
 
         public Boolean validateNumbers()
