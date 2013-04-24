@@ -206,6 +206,10 @@ namespace MahjongScroeBoard
                 scoresContents[1] = number2;
                 scoresContents[2] = number3;
                 scoresContents[3] = number4;
+                Boolean dataTrue = validateNumbers();
+                if (dataTrue)
+                {
+                }
 
             }
             catch (Exception ex)
@@ -249,7 +253,7 @@ namespace MahjongScroeBoard
                 this.snapshotInfo.Text = "未检测到获胜番数";
                 return false;
             }
-            if (negitaveNumber != -3)
+            if (negitaveNumber != 3)
             {
                 this.snapshotInfo.Text = "未检测到三家失败";
                 return false;
