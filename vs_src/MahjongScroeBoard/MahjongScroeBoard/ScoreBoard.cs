@@ -216,7 +216,7 @@ namespace MahjongScroeBoard
             String number = target.Name.Substring(8);
             int index = Int32.Parse(number);
             Console.WriteLine("curent " + (index - 1));
-           // Bitmap sourceImage = SnapshotTaker.takeImage();
+            //Bitmap sourceImage = SnapshotTaker.takeImage();
             Bitmap sourceImage = new Bitmap("t" + (index - 1) + ".jpg");
             if (sourceImage == null)
             {

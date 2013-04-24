@@ -122,12 +122,14 @@ namespace MahjongScroeBoard
 
         public static String getMahjongProcessName()
         {
+            Console.WriteLine("===============================");
             Process[] processes = Process.GetProcesses();
             for (int i = 0; i < processes.Length; i++)
             {
                 Console.WriteLine(processes[i].ProcessName);
             }
-            return "";
+            Console.WriteLine("===============================");
+            return "QQ麻将";
         }
         public static Bitmap GetWindow(IntPtr hWnd, int width, int height)
         {

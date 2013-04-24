@@ -170,6 +170,7 @@
             this.cancelBtn.TabIndex = 4;
             this.cancelBtn.Text = "取消";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // snapshotInfo
             // 
@@ -197,6 +198,7 @@
             this.MinimumSize = new System.Drawing.Size(445, 704);
             this.Name = "SnapshotScoreBoard";
             this.Text = "Mahjong Score Board";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SnapshotScoreBoard_FormClosing);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.snapshotContent)).EndInit();
             this.groupBox2.ResumeLayout(false);

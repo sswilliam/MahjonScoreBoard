@@ -52,7 +52,10 @@ namespace MahjongScroeBoard
         }
         public void fade()
         {
-            this.Visible = false;
+            if (this.Visible)
+            {
+                this.Visible = false;
+            }
         }
         private void ManualScoreBoard_Load(object sender, EventArgs e)
         {

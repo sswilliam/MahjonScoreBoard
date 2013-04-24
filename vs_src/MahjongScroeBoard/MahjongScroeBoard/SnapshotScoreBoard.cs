@@ -209,6 +209,13 @@ namespace MahjongScroeBoard
                 Boolean dataTrue = validateNumbers();
                 if (dataTrue)
                 {
+                    for(int i =0;i<4;i++){
+
+                        Game.getInstance().gameInfo[this.targetRow, i] = this.scoresContents[i];
+                    }
+
+                    ViewManager.scoreBoardUI.refreshScore();
+                    this.fade();
                 }
 
             }
@@ -218,7 +225,10 @@ namespace MahjongScroeBoard
                 this.snapshotInfo.Text = "请输入整数";
             }
         }
-
+        public void fade()
+        {
+            this.Visible = false;
+        }
         public Boolean validateNumbers()
         {
             int win = 0;
@@ -332,6 +342,18 @@ namespace MahjongScroeBoard
             xiName.Text = Game.getInstance().xi;
             beiName.Text = Game.getInstance().bei;
 
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.fade();
+        }
+
+        private void SnapshotScoreBoard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            e.Cancel = true;
+            this.fade();
         }
 
         
