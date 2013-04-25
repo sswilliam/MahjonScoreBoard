@@ -33,7 +33,7 @@ namespace MahjongScroeBoard
             this.cachedImage = sourceImage;
             //this.cachedImage = new Bitmap("t"+targetRow+".jpg");
            // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
-            //this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
+            this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
             //Bitmap core = new Bitmap(410, 435, PixelFormat.Format24bppRgb);
             int outwidth = this.cachedImage.Width - 190;
             int outHeight = this.cachedImage.Height;

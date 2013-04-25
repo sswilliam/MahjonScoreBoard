@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alarmer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="EntryUI.cs">
       <SubType>Form</SubType>

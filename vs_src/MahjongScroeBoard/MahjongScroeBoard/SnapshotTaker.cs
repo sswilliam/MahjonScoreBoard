@@ -67,6 +67,7 @@ namespace MahjongScroeBoard
 
          );
 
+        public static int windowCount = 0;
         [DllImport("user32.dll", EntryPoint = "GetWindowDC")]
 
         public static extern IntPtr GetWindowDC(
@@ -75,13 +76,55 @@ namespace MahjongScroeBoard
 
          );
 
+        [DllImport("user32.dll", EntryPoint = "GetWindowThreadProcessId")]
+        public static extern uint GetWindowThreadProcessId(IntPtr hWnd, ref uint lpdwProcessId);
+
+        [DllImport("user32.dll")]
+        private static extern bool IsWindowVisible(int hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool IsWindow(int hWnd);
+
+
         [DllImport("user32.dll", EntryPoint = "GetWindowRect")]
         private static extern int GetWindowRect(IntPtr hwnd, out   Rectangle lpRect);
 
+        [DllImport("user32.dll")]
+        private static extern int EnumWindows(EnumWindowsProc ewp, int lParam);
+
+
+        [DllImport("user32.dll")]
+        private static extern int GetWindowText(int hWnd, StringBuilder title, int size);
+        
+        [DllImport("user32.dll")]
+        private static extern int GetWindowTextLength(int hWnd);
+
         public static String processName = "";
         public static int tryTime = 0;
+
+        public delegate bool EnumWindowsProc(int hWnd, int lParam);
+
+        public static bool ADA_EnumWindowsProc(int hWnd, int lParam){
+            if (IsWindowVisible(hWnd) && IsWindow(hWnd))
+            {
+
+                windowCount++;
+                uint processId = 0;
+                GetWindowThreadProcessId(new IntPtr(hWnd), ref processId);
+                int cTxtLen, i;
+                String cTitle, strtmp;
+                cTxtLen = GetWindowTextLength(hWnd) + 1;
+                StringBuilder text = new StringBuilder(cTxtLen);
+                GetWindowText(hWnd, text, cTxtLen);
+                cTitle = text.ToString();
+                Console.WriteLine("enum:"+windowCount+" pid:"+processId+" window name:"+cTitle);
+            }
+            return true;
+        }
         public static Bitmap takeImage()
         {
+            EnumWindows(new EnumWindowsProc(ADA_EnumWindowsProc),0);
+            return null;
             if (processName.Length == 0)
             {
                 processName = getMahjongProcessName();

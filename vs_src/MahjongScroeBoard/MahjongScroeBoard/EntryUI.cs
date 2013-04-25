@@ -27,46 +27,57 @@ namespace MahjongScroeBoard
         
         private void fightBtn_Click(object sender, EventArgs e)
         {
-            if (dongName.Text.Trim().Length == 0)
+            try
             {
-                entryInfo.Text = "东家姓名为空";
-                return;
+                if (dongName.Text.Trim().Length == 0)
+                {
+                    entryInfo.Text = "东家姓名为空";
+                    return;
+                }
+                if (nanName.Text.Trim().Length == 0)
+                {
+                    entryInfo.Text = "南家姓名为空";
+                    return;
+                }
+                if (xiName.Text.Trim().Length == 0)
+                {
+                    entryInfo.Text = "西家姓名为空";
+                    return;
+                }
+                if (beiName.Text.Trim().Length == 0)
+                {
+                    entryInfo.Text = "北家姓名为空";
+                    return;
+                }
+                if (dongName.Text.Trim() == nanName.Text.Trim() ||
+                    dongName.Text.Trim() == xiName.Text.Trim() ||
+                    dongName.Text.Trim() == beiName.Text.Trim() ||
+                    nanName.Text.Trim() == xiName.Text.Trim() ||
+                    nanName.Text.Trim() == beiName.Text.Trim() ||
+                    xiName.Text.Trim() == beiName.Text.Trim())
+                {
+                    entryInfo.Text = "姓名重复";
+                    return;
+                }
+                Game.getInstance().init();
+                Game.getInstance().dong = dongName.Text.Trim();
+                Game.getInstance().nan = nanName.Text.Trim();
+                Game.getInstance().xi = xiName.Text.Trim();
+                Game.getInstance().bei = beiName.Text.Trim();
+                entryInfo.Text = "";
+                ViewManager.entryUI.fade();
+                ViewManager.manualScroeBoardUI.refreshDataSet();
+                ViewManager.snapshotScoreBoardUI.refreshDataSet();
+                ViewManager.scoreBoardUI.resetAndDisplay();
             }
-            if (nanName.Text.Trim().Length == 0)
+            catch (Exception ex)
             {
-                entryInfo.Text = "南家姓名为空";
-                return;
+                Alarmer.Show(ex.Message);
             }
-            if (xiName.Text.Trim().Length == 0)
-            {
-                entryInfo.Text = "西家姓名为空";
-                return;
-            }
-            if (beiName.Text.Trim().Length == 0)
-            {
-                entryInfo.Text = "北家姓名为空";
-                return;
-            }
-            if (dongName.Text.Trim() == nanName.Text.Trim() ||
-                dongName.Text.Trim() == xiName.Text.Trim() ||
-                dongName.Text.Trim() == beiName.Text.Trim() ||
-                nanName.Text.Trim() == xiName.Text.Trim() ||
-                nanName.Text.Trim() == beiName.Text.Trim() ||
-                xiName.Text.Trim() == beiName.Text.Trim())
-            {
-                entryInfo.Text = "姓名重复";
-                return;
-            }
-            Game.getInstance().init();
-            Game.getInstance().dong = dongName.Text.Trim();
-            Game.getInstance().nan = nanName.Text.Trim();
-            Game.getInstance().xi = xiName.Text.Trim();
-            Game.getInstance().bei = beiName.Text.Trim();
-            entryInfo.Text = "";
-            ViewManager.entryUI.fade();
-            ViewManager.manualScroeBoardUI.refreshDataSet();
-            ViewManager.snapshotScoreBoardUI.refreshDataSet();
-            ViewManager.scoreBoardUI.resetAndDisplay();
+           // SnapshotTaker.windowCount = 0;
+            //SnapshotTaker.takeImage();
+           // return;
+           
 
         }
         public void fade()
