@@ -63,12 +63,200 @@ namespace MahjongScroeBoard
             }
             sb.Append(fillString("", firstLeng + dongLeng + nanLeng + xiLeng + beiLeng, '-'));
             sb.Append("\r\n");
-            sb.Append(fillString("总计", firstLeng, ' '));
+            sb.Append(fillString("总分", firstLeng, ' '));
             for (int i = 0; i < 4; i++)
             {
                 sb.Append(fillString(totals[i] + "", lengs[i], ' '));
             }
-            return sb.ToString();
+            sb.Append("\r\n");
+            sb.Append(fillString("", firstLeng + dongLeng + nanLeng + xiLeng + beiLeng, '-'));
+            sb.Append("\r\n");
+            double[] bigScore = getBigScore(totals);
+
+            sb.Append(fillString("总计", firstLeng, ' '));
+            for (int i = 0; i < 4; i++)
+            {
+                sb.Append(fillString(bigScore[i] + "", lengs[i], ' '));
+            }
+            sb.Append("\r\n");
+
+                return sb.ToString();
+        }
+
+        public double[] getBigScore(int[] totals)
+        {
+            double[] bigScore = { 0, 0, 0, 0 };
+            int bigest = totals[0];
+            int bigestCount = 1;
+            int wait = 4;
+            for (int i = 1; i < 4; i++)
+            {
+                if (totals[i] > bigest)
+                {
+                    bigest = totals[i];
+                    bigestCount = 1;
+                }
+                else if (totals[i] == bigest)
+                {
+                    bigestCount++;
+                }
+
+            }
+            if (bigestCount == 1)
+            {
+                int secondBigest = -100000;
+                int secondBigestCount = 0;
+                for (int j = 0; j < 4; j++)
+                {
+                    if (totals[j] == bigest)
+                    {
+                        bigScore[j] = 4;
+                    }
+                    else
+                    {
+                        if (totals[j] > secondBigest)
+                        {
+                            secondBigest = totals[j];
+                            secondBigestCount = 1;
+                        }else if(totals[j] == secondBigest){
+                            secondBigestCount++;
+                        }
+                    }
+                }
+                if (secondBigestCount == 1)
+                {
+
+                    int left1Index = -1;
+                    int left1Value = -1000000;
+                    int left2Index = -1;
+                    int left2Value = -1000000;
+                    for (int k = 0; k < 4; k++)
+                    {
+                        if (totals[k] != bigest)
+                        {
+                            if (totals[k] == secondBigest)
+                            {
+                                bigScore[k] = 2;
+                            }
+                            else
+                            {
+                                if (left1Index == -1)
+                                {
+                                    left1Index = k;
+                                    left1Value = totals[k];
+                                }
+                                else
+                                {
+                                    left2Index = k;
+                                    left2Value = totals[k];
+                                }
+                            }
+                        }
+                        
+                    }
+                    if (left1Value > left2Value)
+                    {
+                        bigScore[left1Index] = 1;
+                        bigScore[left2Index] = 0;
+                    }
+                    else if (left1Value == left2Value)
+                    {
+                        bigScore[left1Index] = 0.5;
+                        bigScore[left2Index] = 0.5;
+                    }
+                    else
+                    {
+
+                        bigScore[left1Index] = 0;
+                        bigScore[left2Index] = 1;
+                    }
+
+                }
+                else if (secondBigestCount == 2)
+                {
+                    for(int k = 0;k<4;k++){
+                        if(totals[k] != bigest){
+                            if (totals[k] == secondBigest)
+                            {
+                                bigScore[k] = 1.5;
+                            }
+                            else
+                            {
+                                bigScore[k] = 0;
+                            }
+                        }
+                        
+                    }
+                }else{
+                    for(int k = 0;k<4;k++){
+                        if(totals[k] != bigest){
+                            bigScore[k] = 1;
+                        }
+                    }
+                }
+
+            }
+            else if (bigestCount == 2)
+            {
+                int left1Index = -1;
+                int left1Value = -1000000;
+                int left2Index = -1;
+                int left2Value = -1000000;
+                for (int j = 0; j < 4; j++)
+                {
+                    if (totals[j] != bigest)
+                    {
+                        if (left1Index == -1)
+                        {
+                            left1Index = j;
+                            left1Value = totals[j];
+                        }
+                        else
+                        {
+                            left2Index = j;
+                            left2Value = totals[j];
+                        }
+                    }
+                    else
+                    {
+                        bigScore[j] = 3;
+                    }
+                }
+                if (left1Value > left2Value)
+                {
+                    bigScore[left1Index] = 1;
+                    bigScore[left2Index] = 0;
+                }
+                else if (left1Value == left2Value)
+                {
+                    bigScore[left1Index] = 0.5;
+                    bigScore[left2Index] = 0.5;
+                }
+                else
+                {
+                    bigScore[left1Index] = 0;
+                    bigScore[left2Index] = 1;
+                }
+            }
+            else if (bigestCount == 3)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (totals[j] == bigest)
+                    {
+                        bigScore[j] = 2.33;
+                    }
+                    else
+                    {
+                        bigScore[j] = 0;
+                    }
+                }
+            }
+            else
+            {
+                bigScore[0] = bigScore[1] = bigScore[2] = bigScore[3] = 1.75;
+            }
+            return bigScore;
         }
 
         private String fillString(String source, int length, char withChar)

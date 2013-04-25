@@ -23,10 +23,90 @@ namespace MahjongScroeBoard
             ViewManager.manualScroeBoardUI = new ManualScoreBoard();
             ViewManager.scoreBoardUI = new ScoreBoard();
             ViewManager.snapshotScoreBoardUI = new SnapshotScoreBoard();
+
+           /* printArrays(new int[] { 4, 4, 4, 4 });
+            printArrays(new int[] { 4, 3, 2, 1 });
+            printArrays(new int[] { 1, 4, 3, 2 });
+            printArrays(new int[] { 2, 1, 4, 3 });
+            printArrays(new int[] { 3, 2, 1, 4 });
+            printArrays(new int[] { 1, 2, 3, 4 });
+            printArrays(new int[] { 4, 1, 2,3 });
+            printArrays(new int[] { 3, 4, 1, 2});
+            printArrays(new int[] { 2, 3, 4, 1 });
+
+
+            printArrays(new int[] { 4, 4, 4, 1 });
+            printArrays(new int[] { 4, 4, 1, 4 });
+            printArrays(new int[] { 4, 1, 4, 4 });
+            printArrays(new int[] { 1, 4, 4, 4 });
+
+
+            printArrays(new int[] { 4, 4, 2, 2 });
+            printArrays(new int[] { 4, 2, 4, 2 });
+            printArrays(new int[] { 2, 4, 4, 2 });
+            printArrays(new int[] { 2, 4, 2, 4 });
+            printArrays(new int[] { 2, 2, 4, 4 });
+            printArrays(new int[] { 4, 2, 2, 4 });
+
+
+            printArrays(new int[] { 4, 4, 2, 1 });
+            printArrays(new int[] { 4, 2, 4, 1 });
+            printArrays(new int[] { 2, 4, 4, 1 });
+            printArrays(new int[] { 1, 4, 2, 4 });
+            printArrays(new int[] { 1, 2, 4, 4 });
+            printArrays(new int[] { 4, 1, 2, 4 });
+
+
+            printArrays(new int[] { 4, 4, 1, 2 });
+            printArrays(new int[] { 4, 1, 4, 2 });
+            printArrays(new int[] { 1, 4, 4, 2 });
+            printArrays(new int[] { 2, 4, 1, 4 });
+            printArrays(new int[] { 2, 1, 4, 4 });
+            printArrays(new int[] { 4, 2, 1, 4 });
+
+            printArrays(new int[] { 1, 4, 2, 2 });
+            printArrays(new int[] { 1, 2, 4, 2 });
+            printArrays(new int[] { 2, 1, 4, 2 });
+            printArrays(new int[] { 2, 1, 2, 4 });
+            printArrays(new int[] { 2, 2, 1, 4 });
+            printArrays(new int[] { 1, 2, 2, 4 });
+
+            printArrays(new int[] { 4, 1, 2, 2 });
+            printArrays(new int[] { 4, 2, 1, 2 });
+            printArrays(new int[] { 2, 4, 1, 2 });
+            printArrays(new int[] { 2, 4, 2, 1 });
+            printArrays(new int[] { 2, 2, 4, 1 });
+            printArrays(new int[] { 4, 2, 2, 1 });
+
+
+            printArrays(new int[] { 4, 1, 1, 1 });
+            printArrays(new int[] { 1, 2, 1, 1 });
+            printArrays(new int[] { 1, 1, 3, 1 });
+            printArrays(new int[] { 1, 1, 1, 4 });*/
+        }
+        private void printArrays(int[] source)
+        {
+            Console.Write('<');
+            for (int i = 0; i < 4; i++)
+            {
+                Console.Write(source[i]);
+                Console.Write(',');
+            }
+
+            Console.Write("> is <");
+            double[] target = Game.getInstance().getBigScore(source);
+            for (int i = 0; i < 4; i++)
+            {
+                Console.Write(target[i]);
+                Console.Write(',');
+            }
+            Console.WriteLine('>');
         }
         
         private void fightBtn_Click(object sender, EventArgs e)
         {
+            //SnapshotTaker.takeImage();
+            //return;
             try
             {
                 if (dongName.Text.Trim().Length == 0)

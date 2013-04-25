@@ -105,60 +105,103 @@ namespace MahjongScroeBoard
         public delegate bool EnumWindowsProc(int hWnd, int lParam);
 
         public static bool ADA_EnumWindowsProc(int hWnd, int lParam){
+            if (QQGamePtr != IntPtr.Zero)
+            {
+                return true;
+            }
             if (IsWindowVisible(hWnd) && IsWindow(hWnd))
             {
 
                 windowCount++;
                 uint processId = 0;
                 GetWindowThreadProcessId(new IntPtr(hWnd), ref processId);
+                Console.WriteLine(pid + ": " + processId);
+                if (processId == pid)
+                {
+                    QQGamePtr = new IntPtr(hWnd);
+                    Console.WriteLine("found");
+                }
+                /*GetWindowThreadProcessId(new IntPtr(hWnd), ref processId);
                 int cTxtLen, i;
                 String cTitle, strtmp;
                 cTxtLen = GetWindowTextLength(hWnd) + 1;
                 StringBuilder text = new StringBuilder(cTxtLen);
                 GetWindowText(hWnd, text, cTxtLen);
                 cTitle = text.ToString();
-                Console.WriteLine("enum:"+windowCount+" pid:"+processId+" window name:"+cTitle);
+                Console.WriteLine("enum:"+windowCount+" pid:"+processId+" window name:"+cTitle);*/
             }
             return true;
         }
-        public static Bitmap takeImage()
+        private static IntPtr QQGamePtr = IntPtr.Zero;
+        private static int pid = -1;
+        public static void findQQPtr()
         {
-            EnumWindows(new EnumWindowsProc(ADA_EnumWindowsProc),0);
-            return null;
-            if (processName.Length == 0)
+            QQGamePtr = IntPtr.Zero;
+            Process[] processes = Process.GetProcesses();
+            for (int i = 0; i < processes.Length; i++)
             {
-                processName = getMahjongProcessName();
-                if (processName.Length == 0)
+                if (processes[i].ProcessName == "mjrpg")
                 {
-                    return null;
+                    pid = processes[i].Id;
+                    Console.WriteLine("pid found: " + pid);
+                    break;
                 }
             }
-            IntPtr targetWindow = FindWindow(null, processName);
-            Rectangle rect = new Rectangle();
-            GetWindowRect(targetWindow,out rect);
-            Bitmap bt = GetWindow(targetWindow, rect.Width - rect.X, rect.Height - rect.Y);
-            if (bt.Width < 100)
+            if (pid == -1)
             {
-                processName = getMahjongProcessName();
-                if (processName.Length == 0)
+                QQGamePtr = IntPtr.Zero;
+                return;
+            }
+
+            EnumWindows(new EnumWindowsProc(ADA_EnumWindowsProc), 0);
+
+        }
+        public static Bitmap takeImage()
+        {
+            try
+            {
+                if (QQGamePtr == IntPtr.Zero)
                 {
-                    return null;
-                }
-                targetWindow = FindWindow(null, processName);
-                rect = new Rectangle();
-                GetWindowRect(targetWindow, out rect);
-                bt = GetWindow(targetWindow, rect.Width - rect.X, rect.Height - rect.Y);
-                bt.Save("test.jpg", ImageFormat.Jpeg);
-                if (bt.Width < 100)
-                {
-                    return null;
+                    findQQPtr();
+                    if (QQGamePtr == IntPtr.Zero)
+                    {
+                        return null;
+                    }
                 }
 
+                Rectangle rect = new Rectangle();
+                GetWindowRect(QQGamePtr, out rect);
+                Bitmap bt = GetWindow(QQGamePtr, rect.Width - rect.X, rect.Height - rect.Y);
+                if (bt.Height < 100)
+                {
+                    return null;
+                }
                 bt.Save("test.jpg", ImageFormat.Jpeg);
                 return bt;
             }
-            bt.Save("test.jpg", ImageFormat.Jpeg);
-            return bt;
+            catch (Exception e)
+            {
+                findQQPtr();
+                if (QQGamePtr == IntPtr.Zero)
+                {
+                    findQQPtr();
+                    if (QQGamePtr == IntPtr.Zero)
+                    {
+                        return null;
+                    }
+                }
+
+                Rectangle rect = new Rectangle();
+                GetWindowRect(QQGamePtr, out rect);
+                Bitmap bt = GetWindow(QQGamePtr, rect.Width - rect.X, rect.Height - rect.Y);
+                if (bt.Height < 100)
+                {
+                    return null;
+                }
+                bt.Save("test.jpg", ImageFormat.Jpeg);
+                return bt;
+            }
+            
             //Image 
 
         }
