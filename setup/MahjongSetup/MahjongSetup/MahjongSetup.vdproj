@@ -146,6 +146,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5.SP1"
+                    {
+                    "Name" = "8:.NET Framework 3.5 SP1"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5.SP1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -177,7 +198,7 @@
         {
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_016D08EF115C4AF49070CE60E82609B9"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\2.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\2.bmp"
             "TargetName" = "8:2.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -197,7 +218,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C639E7C904E4132850C02412EA592AF"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\9.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\9.bmp"
             "TargetName" = "8:9.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -217,7 +238,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1937B702046F4F86B79CB53F96CEC85B"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\5.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\5.bmp"
             "TargetName" = "8:5.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -237,7 +258,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2556E133291A4C6EB7AEBCF05F55A189"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\0.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\0.bmp"
             "TargetName" = "8:0.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -257,7 +278,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3C5E941692444F1295B2F85E007CCEC7"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\4.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\4.bmp"
             "TargetName" = "8:4.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -277,7 +298,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B521B13BFE0415084B6CAD7A23C555B"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\7.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\7.bmp"
             "TargetName" = "8:7.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -328,7 +349,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\MahjongScroeBoard.exe"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\MahjongScroeBoard.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_233DFFCBAE1F4ABCACDF2FD4D73F1D8F"
@@ -348,7 +369,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9A076DE7A85B490B9BB776EC8E8351C6"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\1.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\1.bmp"
             "TargetName" = "8:1.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -368,7 +389,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3D7C98398C846E49C8F3BF9B1CEC56C"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\8.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\8.bmp"
             "TargetName" = "8:8.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -388,7 +409,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B12C74E9926C42D4B50D39318817836D"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\3.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\3.bmp"
             "TargetName" = "8:3.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -408,7 +429,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F743D84A69D240C7A79163EDE09AB1D6"
             {
-            "SourcePath" = "8:D:\\MahjonScoreBoard\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\6.bmp"
+            "SourcePath" = "8:..\\..\\..\\vs_src\\MahjongScroeBoard\\MahjongScroeBoard\\bin\\Release\\numberdata\\6.bmp"
             "TargetName" = "8:6.bmp"
             "Tag" = "8:"
             "Folder" = "8:_907768E5CA6A454284C0E7B94359B25C"
@@ -505,7 +526,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MahjongSetup"
         "ProductCode" = "8:{BB6B75C7-B24E-4142-A3B2-5384B3CE245A}"
-        "PackageCode" = "8:{571FC1B0-8629-4350-9F85-4555547FBA28}"
+        "PackageCode" = "8:{B872C3B0-38CB-4DEF-899A-408D863B3BC1}"
         "UpgradeCode" = "8:{A7115BC9-FBE0-41A2-8F79-EAAEB394BA07}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
