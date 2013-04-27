@@ -15,6 +15,7 @@ namespace MahjongScroeBoard
         public String bei;
         public Boolean saved = false;
         public int[,] gameInfo = new int[16,4];
+        public int currentRound = 0;
         private Game()
         {
         }
@@ -281,6 +282,7 @@ namespace MahjongScroeBoard
         {
             roundPath = "scores\\"+generateID()+"\\";
             Directory.CreateDirectory(roundPath);
+            this.currentRound = 0;
             dong = "";
             nan = "";
             xi = "";

@@ -144,6 +144,22 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.historyBtn = new System.Windows.Forms.Button();
+            this.zeroBtn1 = new System.Windows.Forms.Button();
+            this.zeroBtn2 = new System.Windows.Forms.Button();
+            this.zeroBtn3 = new System.Windows.Forms.Button();
+            this.zeroBtn4 = new System.Windows.Forms.Button();
+            this.zeroBtn8 = new System.Windows.Forms.Button();
+            this.zeroBtn7 = new System.Windows.Forms.Button();
+            this.zeroBtn6 = new System.Windows.Forms.Button();
+            this.zeroBtn5 = new System.Windows.Forms.Button();
+            this.zeroBtn12 = new System.Windows.Forms.Button();
+            this.zeroBtn11 = new System.Windows.Forms.Button();
+            this.zeroBtn10 = new System.Windows.Forms.Button();
+            this.zeroBtn9 = new System.Windows.Forms.Button();
+            this.zeroBtn16 = new System.Windows.Forms.Button();
+            this.zeroBtn15 = new System.Windows.Forms.Button();
+            this.zeroBtn14 = new System.Windows.Forms.Button();
+            this.zeroBtn13 = new System.Windows.Forms.Button();
             this.dongGroup.SuspendLayout();
             this.nanGourp.SuspendLayout();
             this.xiGroup.SuspendLayout();
@@ -169,6 +185,10 @@
             // 
             // dongGroup
             // 
+            this.dongGroup.Controls.Add(this.zeroBtn4);
+            this.dongGroup.Controls.Add(this.zeroBtn3);
+            this.dongGroup.Controls.Add(this.zeroBtn2);
+            this.dongGroup.Controls.Add(this.zeroBtn1);
             this.dongGroup.Controls.Add(this.manual4);
             this.dongGroup.Controls.Add(this.snapshot4);
             this.dongGroup.Controls.Add(this.manual3);
@@ -195,7 +215,7 @@
             this.dongGroup.Controls.Add(this.dong1);
             this.dongGroup.Location = new System.Drawing.Point(4, 51);
             this.dongGroup.Name = "dongGroup";
-            this.dongGroup.Size = new System.Drawing.Size(448, 127);
+            this.dongGroup.Size = new System.Drawing.Size(503, 127);
             this.dongGroup.TabIndex = 2;
             this.dongGroup.TabStop = false;
             this.dongGroup.Text = "东风圈";
@@ -453,9 +473,13 @@
             // 
             // nanGourp
             // 
+            this.nanGourp.Controls.Add(this.zeroBtn8);
             this.nanGourp.Controls.Add(this.manual8);
+            this.nanGourp.Controls.Add(this.zeroBtn7);
             this.nanGourp.Controls.Add(this.snapshot8);
+            this.nanGourp.Controls.Add(this.zeroBtn6);
             this.nanGourp.Controls.Add(this.manual7);
+            this.nanGourp.Controls.Add(this.zeroBtn5);
             this.nanGourp.Controls.Add(this.snapshot7);
             this.nanGourp.Controls.Add(this.manual6);
             this.nanGourp.Controls.Add(this.snapshot6);
@@ -479,7 +503,7 @@
             this.nanGourp.Controls.Add(this.dong5);
             this.nanGourp.Location = new System.Drawing.Point(4, 184);
             this.nanGourp.Name = "nanGourp";
-            this.nanGourp.Size = new System.Drawing.Size(448, 127);
+            this.nanGourp.Size = new System.Drawing.Size(503, 127);
             this.nanGourp.TabIndex = 27;
             this.nanGourp.TabStop = false;
             this.nanGourp.Text = "南风圈";
@@ -686,9 +710,13 @@
             // 
             // xiGroup
             // 
+            this.xiGroup.Controls.Add(this.zeroBtn12);
             this.xiGroup.Controls.Add(this.manual12);
+            this.xiGroup.Controls.Add(this.zeroBtn11);
             this.xiGroup.Controls.Add(this.snapshot12);
+            this.xiGroup.Controls.Add(this.zeroBtn10);
             this.xiGroup.Controls.Add(this.manual11);
+            this.xiGroup.Controls.Add(this.zeroBtn9);
             this.xiGroup.Controls.Add(this.snapshot11);
             this.xiGroup.Controls.Add(this.manual10);
             this.xiGroup.Controls.Add(this.snapshot10);
@@ -712,7 +740,7 @@
             this.xiGroup.Controls.Add(this.dong9);
             this.xiGroup.Location = new System.Drawing.Point(4, 317);
             this.xiGroup.Name = "xiGroup";
-            this.xiGroup.Size = new System.Drawing.Size(448, 127);
+            this.xiGroup.Size = new System.Drawing.Size(503, 127);
             this.xiGroup.TabIndex = 27;
             this.xiGroup.TabStop = false;
             this.xiGroup.Text = "西风圈";
@@ -919,9 +947,13 @@
             // 
             // beiGroup
             // 
+            this.beiGroup.Controls.Add(this.zeroBtn16);
             this.beiGroup.Controls.Add(this.manual16);
+            this.beiGroup.Controls.Add(this.zeroBtn15);
             this.beiGroup.Controls.Add(this.snapshot16);
+            this.beiGroup.Controls.Add(this.zeroBtn14);
             this.beiGroup.Controls.Add(this.manual15);
+            this.beiGroup.Controls.Add(this.zeroBtn13);
             this.beiGroup.Controls.Add(this.snapshot15);
             this.beiGroup.Controls.Add(this.manual14);
             this.beiGroup.Controls.Add(this.snapshot14);
@@ -945,7 +977,7 @@
             this.beiGroup.Controls.Add(this.dong13);
             this.beiGroup.Location = new System.Drawing.Point(5, 450);
             this.beiGroup.Name = "beiGroup";
-            this.beiGroup.Size = new System.Drawing.Size(448, 127);
+            this.beiGroup.Size = new System.Drawing.Size(502, 127);
             this.beiGroup.TabIndex = 28;
             this.beiGroup.TabStop = false;
             this.beiGroup.Text = "北风圈";
@@ -1226,11 +1258,155 @@
             this.historyBtn.UseVisualStyleBackColor = true;
             this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
             // 
+            // zeroBtn1
+            // 
+            this.zeroBtn1.Location = new System.Drawing.Point(446, 18);
+            this.zeroBtn1.Name = "zeroBtn1";
+            this.zeroBtn1.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn1.TabIndex = 27;
+            this.zeroBtn1.Text = "荒庄";
+            this.zeroBtn1.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn2
+            // 
+            this.zeroBtn2.Location = new System.Drawing.Point(446, 43);
+            this.zeroBtn2.Name = "zeroBtn2";
+            this.zeroBtn2.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn2.TabIndex = 28;
+            this.zeroBtn2.Text = "荒庄";
+            this.zeroBtn2.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn3
+            // 
+            this.zeroBtn3.Location = new System.Drawing.Point(446, 69);
+            this.zeroBtn3.Name = "zeroBtn3";
+            this.zeroBtn3.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn3.TabIndex = 29;
+            this.zeroBtn3.Text = "荒庄";
+            this.zeroBtn3.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn4
+            // 
+            this.zeroBtn4.Location = new System.Drawing.Point(446, 94);
+            this.zeroBtn4.Name = "zeroBtn4";
+            this.zeroBtn4.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn4.TabIndex = 30;
+            this.zeroBtn4.Text = "荒庄";
+            this.zeroBtn4.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn8
+            // 
+            this.zeroBtn8.Location = new System.Drawing.Point(446, 94);
+            this.zeroBtn8.Name = "zeroBtn8";
+            this.zeroBtn8.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn8.TabIndex = 34;
+            this.zeroBtn8.Text = "荒庄";
+            this.zeroBtn8.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn7
+            // 
+            this.zeroBtn7.Location = new System.Drawing.Point(446, 69);
+            this.zeroBtn7.Name = "zeroBtn7";
+            this.zeroBtn7.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn7.TabIndex = 33;
+            this.zeroBtn7.Text = "荒庄";
+            this.zeroBtn7.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn6
+            // 
+            this.zeroBtn6.Location = new System.Drawing.Point(446, 43);
+            this.zeroBtn6.Name = "zeroBtn6";
+            this.zeroBtn6.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn6.TabIndex = 32;
+            this.zeroBtn6.Text = "荒庄";
+            this.zeroBtn6.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn5
+            // 
+            this.zeroBtn5.Location = new System.Drawing.Point(446, 18);
+            this.zeroBtn5.Name = "zeroBtn5";
+            this.zeroBtn5.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn5.TabIndex = 31;
+            this.zeroBtn5.Text = "荒庄";
+            this.zeroBtn5.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn12
+            // 
+            this.zeroBtn12.Location = new System.Drawing.Point(446, 94);
+            this.zeroBtn12.Name = "zeroBtn12";
+            this.zeroBtn12.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn12.TabIndex = 38;
+            this.zeroBtn12.Text = "荒庄";
+            this.zeroBtn12.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn11
+            // 
+            this.zeroBtn11.Location = new System.Drawing.Point(446, 69);
+            this.zeroBtn11.Name = "zeroBtn11";
+            this.zeroBtn11.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn11.TabIndex = 37;
+            this.zeroBtn11.Text = "荒庄";
+            this.zeroBtn11.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn10
+            // 
+            this.zeroBtn10.Location = new System.Drawing.Point(446, 43);
+            this.zeroBtn10.Name = "zeroBtn10";
+            this.zeroBtn10.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn10.TabIndex = 36;
+            this.zeroBtn10.Text = "荒庄";
+            this.zeroBtn10.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn9
+            // 
+            this.zeroBtn9.Location = new System.Drawing.Point(446, 18);
+            this.zeroBtn9.Name = "zeroBtn9";
+            this.zeroBtn9.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn9.TabIndex = 35;
+            this.zeroBtn9.Text = "荒庄";
+            this.zeroBtn9.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn16
+            // 
+            this.zeroBtn16.Location = new System.Drawing.Point(445, 94);
+            this.zeroBtn16.Name = "zeroBtn16";
+            this.zeroBtn16.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn16.TabIndex = 42;
+            this.zeroBtn16.Text = "荒庄";
+            this.zeroBtn16.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn15
+            // 
+            this.zeroBtn15.Location = new System.Drawing.Point(445, 69);
+            this.zeroBtn15.Name = "zeroBtn15";
+            this.zeroBtn15.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn15.TabIndex = 41;
+            this.zeroBtn15.Text = "荒庄";
+            this.zeroBtn15.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn14
+            // 
+            this.zeroBtn14.Location = new System.Drawing.Point(445, 43);
+            this.zeroBtn14.Name = "zeroBtn14";
+            this.zeroBtn14.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn14.TabIndex = 40;
+            this.zeroBtn14.Text = "荒庄";
+            this.zeroBtn14.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn13
+            // 
+            this.zeroBtn13.Location = new System.Drawing.Point(445, 18);
+            this.zeroBtn13.Name = "zeroBtn13";
+            this.zeroBtn13.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn13.TabIndex = 39;
+            this.zeroBtn13.Text = "荒庄";
+            this.zeroBtn13.UseVisualStyleBackColor = true;
+            // 
             // ScoreBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 627);
+            this.ClientSize = new System.Drawing.Size(509, 627);
             this.Controls.Add(this.historyBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.saveBtn);
@@ -1252,9 +1428,9 @@
             this.Controls.Add(this.dongName);
             this.Controls.Add(this.dongLabel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(475, 665);
+            this.MaximumSize = new System.Drawing.Size(525, 665);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(475, 665);
+            this.MinimumSize = new System.Drawing.Size(525, 665);
             this.Name = "ScoreBoard";
             this.Text = "Mahjong Score Board";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScoreBoard_FormClosing);
@@ -1390,5 +1566,21 @@
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Button historyBtn;
+        private System.Windows.Forms.Button zeroBtn1;
+        private System.Windows.Forms.Button zeroBtn4;
+        private System.Windows.Forms.Button zeroBtn3;
+        private System.Windows.Forms.Button zeroBtn2;
+        private System.Windows.Forms.Button zeroBtn8;
+        private System.Windows.Forms.Button zeroBtn7;
+        private System.Windows.Forms.Button zeroBtn6;
+        private System.Windows.Forms.Button zeroBtn5;
+        private System.Windows.Forms.Button zeroBtn12;
+        private System.Windows.Forms.Button zeroBtn11;
+        private System.Windows.Forms.Button zeroBtn10;
+        private System.Windows.Forms.Button zeroBtn9;
+        private System.Windows.Forms.Button zeroBtn16;
+        private System.Windows.Forms.Button zeroBtn15;
+        private System.Windows.Forms.Button zeroBtn14;
+        private System.Windows.Forms.Button zeroBtn13;
     }
 }

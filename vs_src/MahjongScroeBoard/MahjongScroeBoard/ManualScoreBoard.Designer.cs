@@ -43,9 +43,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 12);
+            this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 12);
+            this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "获胜者:";
             // 
@@ -53,17 +53,17 @@
             // 
             this.winnerName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.winnerName.FormattingEnabled = true;
-            this.winnerName.Location = new System.Drawing.Point(64, 8);
+            this.winnerName.Location = new System.Drawing.Point(64, 9);
             this.winnerName.Name = "winnerName";
-            this.winnerName.Size = new System.Drawing.Size(121, 20);
+            this.winnerName.Size = new System.Drawing.Size(121, 21);
             this.winnerName.TabIndex = 1;
             // 
             // selfMo
             // 
             this.selfMo.AutoSize = true;
-            this.selfMo.Location = new System.Drawing.Point(193, 10);
+            this.selfMo.Location = new System.Drawing.Point(193, 11);
             this.selfMo.Name = "selfMo";
-            this.selfMo.Size = new System.Drawing.Size(48, 16);
+            this.selfMo.Size = new System.Drawing.Size(50, 17);
             this.selfMo.TabIndex = 2;
             this.selfMo.Text = "自摸";
             this.selfMo.UseVisualStyleBackColor = true;
@@ -72,9 +72,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 12);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "点炮者:";
             // 
@@ -82,33 +82,33 @@
             // 
             this.paoMember.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paoMember.FormattingEnabled = true;
-            this.paoMember.Location = new System.Drawing.Point(64, 62);
+            this.paoMember.Location = new System.Drawing.Point(64, 67);
             this.paoMember.Name = "paoMember";
-            this.paoMember.Size = new System.Drawing.Size(121, 20);
+            this.paoMember.Size = new System.Drawing.Size(121, 21);
             this.paoMember.TabIndex = 4;
             // 
             // fanNumber
             // 
             this.fanNumber.FormattingEnabled = true;
-            this.fanNumber.Location = new System.Drawing.Point(64, 35);
+            this.fanNumber.Location = new System.Drawing.Point(64, 38);
             this.fanNumber.Name = "fanNumber";
-            this.fanNumber.Size = new System.Drawing.Size(121, 20);
+            this.fanNumber.Size = new System.Drawing.Size(121, 21);
             this.fanNumber.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 39);
+            this.label3.Location = new System.Drawing.Point(13, 42);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 12);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "番数:";
             // 
             // okBtn
             // 
-            this.okBtn.Location = new System.Drawing.Point(60, 106);
+            this.okBtn.Location = new System.Drawing.Point(60, 115);
             this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(75, 21);
+            this.okBtn.Size = new System.Drawing.Size(75, 23);
             this.okBtn.TabIndex = 7;
             this.okBtn.Text = "确定";
             this.okBtn.UseVisualStyleBackColor = true;
@@ -116,9 +116,9 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(141, 106);
+            this.cancelBtn.Location = new System.Drawing.Point(141, 115);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(75, 21);
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 8;
             this.cancelBtn.Text = "取消";
             this.cancelBtn.UseVisualStyleBackColor = true;
@@ -128,16 +128,16 @@
             // 
             this.ManualInfo.AutoSize = true;
             this.ManualInfo.ForeColor = System.Drawing.Color.Red;
-            this.ManualInfo.Location = new System.Drawing.Point(16, 90);
+            this.ManualInfo.Location = new System.Drawing.Point(16, 98);
             this.ManualInfo.Name = "ManualInfo";
-            this.ManualInfo.Size = new System.Drawing.Size(0, 12);
+            this.ManualInfo.Size = new System.Drawing.Size(0, 13);
             this.ManualInfo.TabIndex = 9;
             // 
             // ManualScoreBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 134);
+            this.ClientSize = new System.Drawing.Size(284, 145);
             this.Controls.Add(this.ManualInfo);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.okBtn);
@@ -149,9 +149,9 @@
             this.Controls.Add(this.winnerName);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(300, 172);
+            this.MaximumSize = new System.Drawing.Size(300, 183);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(300, 172);
+            this.MinimumSize = new System.Drawing.Size(300, 183);
             this.Name = "ManualScoreBoard";
             this.Text = "Mahjong Score Board";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManualScoreBoard_FormClosing);

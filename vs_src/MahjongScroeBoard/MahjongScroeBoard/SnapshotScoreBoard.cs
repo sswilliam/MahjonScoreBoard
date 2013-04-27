@@ -29,9 +29,18 @@ namespace MahjongScroeBoard
         {
             this.targetRow = targetRow;
             this.cachedImage = sourceImage;
-            //this.cachedImage = new Bitmap("t"+targetRow+".jpg");
-           // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
-            this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
+            for (int i = 0; i < 4; i++)
+            {
+                scoresContents[i] = 0;
+                
+            }
+            dongScore.Text = scoresContents[0] + "";
+            nanScore.Text = scoresContents[1] + "";
+            xiScore.Text = scoresContents[2] + "";
+            beiScore.Text = scoresContents[3] + "";
+                //this.cachedImage = new Bitmap("t"+targetRow+".jpg");
+                // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
+                this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
             //Bitmap core = new Bitmap(410, 435, PixelFormat.Format24bppRgb);
             int outwidth = this.cachedImage.Width - 190;
             int outHeight = this.cachedImage.Height;
@@ -51,63 +60,9 @@ namespace MahjongScroeBoard
                 Rectangle scoreRect = new Rectangle(285, 276+i*20, 50, 20);
                 Bitmap score = core.Clone(scoreRect, PixelFormat.Format24bppRgb);
                // score.Save(Game.getInstance().roundPath + (targetRow + 1) + "s_" + i + ".jpg", ImageFormat.Jpeg);
-               
-                Bitmap bwScore = new Bitmap(50, 20, PixelFormat.Format24bppRgb);
-                
-                for (int w = 0; w < 50; w++)
-                {
-                    for (int h = 0; h < 20; h++)
-                    {
-                        Color color = score.GetPixel(w, h);
-                        if (color.R > 180 && color.G > 180 && color.B > 180)
-                        {
-                            bwScore.SetPixel(w, h, Color.White);
-                        }
-                        else
-                        {
-                            bwScore.SetPixel(w, h, Color.Black);
-                        }
-                       
-                    }
 
-                    //Console.Write("\n");
-                }
-                ArrayList spiltedImages = new ArrayList();
-                Boolean isBlack = true;
-                int beginX = 0;
-                for (int w = 0; w < 50; w++)
-                {
-                    Boolean hasWhite = false;
-                    for (int h = 0; h < 20; h++)
-                    {
-                        Color currentPoint = bwScore.GetPixel(w, h);
-                        if (currentPoint.R == 255 && currentPoint.G == 255 && currentPoint.B == 255)
-                        {
-                            hasWhite = true;
-                            break;
-                        }
-                    }
-                    if (hasWhite)
-                    {
-                        if (isBlack)
-                        {
-                            beginX = w;
-                            isBlack = false;
-                        }
-                    }
-                    else
-                    {
-                        if (!isBlack)
-                        {
-                            isBlack = true;
-                            Rectangle speiteBlock = new Rectangle(beginX,0,w - beginX,20);
-                            Bitmap spiteItem = cutBlackHeadAndTail(bwScore.Clone(speiteBlock, PixelFormat.Format24bppRgb));
-                            //spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
-                            spiltedImages.Add(spiteItem);
-                        }
-                    }
-                }
-
+                Bitmap bwScore = getBWImage(score);
+                ArrayList spiltedImages = seperateBlocks(bwScore);
                 object[] datas = spiltedImages.ToArray();
                 if (datas.Length > 1)
                 {
@@ -129,11 +84,194 @@ namespace MahjongScroeBoard
                // bwScore.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + ".bmp", ImageFormat.Bmp);
             }
 
-            Console.WriteLine("------------------------------------------------");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+
+                    Rectangle fanRect = new Rectangle(35+120*i, 153+25*j, 120, 25);
+                    Bitmap temp = core.Clone(fanRect, PixelFormat.Format24bppRgb);
+                    temp.Save("test\\" + (targetRow + 1) + "fan_" + i + j + ".jpg");
+                    Bitmap tempBW = getBWImage(temp);
+                    tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bw.jpg");
+
+                    filterSinglePoints(tempBW);
+                    tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bwf.jpg");
+
+                    ArrayList names = seperateBlocks(tempBW);
+                    for (int k = 0; k < names.Count; k++)
+                    {
+                        ((Bitmap)names[k]).Save("test\\" + targetRow + i + j + k + ".bmp",ImageFormat.Bmp);
+                    }
+
+                }
+            }
+
+                Console.WriteLine("------------------------------------------------");
 
             this.ShowDialog(ViewManager.scoreBoardUI);
 
         }
+
+        private ArrayList seperateBlocks(Bitmap source)
+        {
+            ArrayList spiltedImages = new ArrayList();
+            Boolean isBlack = true;
+            int beginX = 0;
+            for (int w = 0; w < source.Width; w++)
+            {
+                Boolean hasWhite = false;
+                for (int h = 0; h < source.Height; h++)
+                {
+                    Color currentPoint = source.GetPixel(w, h);
+                    if (currentPoint.R == 255 && currentPoint.G == 255 && currentPoint.B == 255)
+                    {
+                        hasWhite = true;
+                        break;
+                    }
+                }
+                if (hasWhite)
+                {
+                    if (isBlack)
+                    {
+                        beginX = w;
+                        isBlack = false;
+                    }
+                }
+                else
+                {
+                    if (!isBlack)
+                    {
+                        isBlack = true;
+                        Rectangle speiteBlock = new Rectangle(beginX, 0, w - beginX, source.Height);
+                        Bitmap spiteItem = cutBlackHeadAndTail(source.Clone(speiteBlock, PixelFormat.Format24bppRgb));
+                        //spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
+                        spiltedImages.Add(spiteItem);
+                    }
+                }
+            }
+            return spiltedImages;
+        }
+        private void filterSinglePoints(Bitmap source)
+        {
+            for (int i = 60; i < source.Width; i++)
+            {
+                for (int j = 0; j < source.Height; j++)
+                {
+                    if (isWhite(source.GetPixel(i, j)))
+                    {
+                        ArrayList traveledPoint = new ArrayList();
+                        traveledPoint.Add(new Point(i, j));
+                        Boolean b = testIsGroup(new Point(i, j), source, 5, 0, traveledPoint);
+                        if (!b) 
+                        {
+                            source.SetPixel(i, j, Color.Black);
+                        }
+                    }
+                }
+            }
+
+        }
+        private Boolean isWhite(Color c)
+        {
+            if (c.R == 255 && c.G == 255 && c.B == 255)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public Boolean testIsGroup(Point pt, Bitmap source, int Count, int level, ArrayList traveledPoint)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (i != 1 || j != 1)
+                    {
+                        int tx = pt.X + i - 1;
+                        int ty = pt.Y + j - 1;
+                        
+                        //Console.Write("{" + tx + ":" + ty + "},");
+                        if (notInList(tx, ty, traveledPoint) && tx > -1 && ty > -1 && tx < source.Width + 1 && ty < source.Height + 1)
+                        {
+                            Color targetColor = source.GetPixel(tx, ty);
+                            if (isWhite(targetColor))
+                            {
+                                if (level == Count)
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    traveledPoint.Add(new Point(tx, ty));
+                                    Boolean b = testIsGroup(new Point(tx, ty), source, Count, level + 1, traveledPoint);
+                                    if (b)
+                                    {
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        traveledPoint.RemoveAt(traveledPoint.Count - 1);
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //Console.wr
+                        }
+                    }
+
+                }
+            }
+            return false;
+        }
+        public Boolean notInList(int tx, int ty, ArrayList points)
+        {
+            if (points == null)
+            {
+                return true;
+            }
+            else
+            {
+                for (int i = 0; i < points.Count; i++)
+                {
+                    if (tx == ((Point)points[i]).X && ty == ((Point)points[i]).Y)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        public Bitmap getBWImage(Bitmap source)
+        {
+            Bitmap bwScore = new Bitmap(source.Width, source.Height, PixelFormat.Format24bppRgb);
+
+            for (int w = 0; w < source.Width; w++)
+            {
+                for (int h = 0; h < source.Height; h++)
+                {
+                    Color color = source.GetPixel(w, h);
+                    if (color.R > 180 && color.G > 180 && color.B > 180)
+                    {
+                        bwScore.SetPixel(w, h, Color.White);
+                    }
+                    else
+                    {
+                        bwScore.SetPixel(w, h, Color.Black);
+                    }
+
+                }
+
+                //Console.Write("\n");
+            }
+            return bwScore;
+        }
+
         public int getTotalNumberFromArray(object[] source, int first)
         {
             int total = 0;
@@ -211,7 +349,11 @@ namespace MahjongScroeBoard
 
                         Game.getInstance().gameInfo[this.targetRow, i] = this.scoresContents[i];
                     }
-
+                    if (Game.getInstance().currentRound < 16)
+                    {
+                        Game.getInstance().currentRound++;
+                        ViewManager.scoreBoardUI.gotoRound(Game.getInstance().currentRound);
+                    }
                     ViewManager.scoreBoardUI.refreshScore();
                     this.fade();
                 }

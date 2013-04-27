@@ -66,7 +66,6 @@ namespace MahjongScroeBoard
 
          );
 
-        public static int windowCount = 0;
         [DllImport("user32.dll", EntryPoint = "GetWindowDC")]
 
         public static extern IntPtr GetWindowDC(
@@ -103,6 +102,7 @@ namespace MahjongScroeBoard
 
         public delegate bool EnumWindowsProc(int hWnd, int lParam);
 
+        public static int windowCount = 0;
         public static bool ADA_EnumWindowsProc(int hWnd, int lParam){
             if (QQGamePtr != IntPtr.Zero)
             {
@@ -155,8 +155,14 @@ namespace MahjongScroeBoard
             EnumWindows(new EnumWindowsProc(ADA_EnumWindowsProc), 0);
 
         }
-        public static Bitmap takeImage()
+        private static int takeTime = 0;
+        private static Bitmap doTakeImage()
         {
+            if (takeTime > 3)
+            {
+                return null;
+            }
+            takeTime++;
             try
             {
                 if (QQGamePtr == IntPtr.Zero)
@@ -171,51 +177,25 @@ namespace MahjongScroeBoard
                 Rectangle rect = new Rectangle();
                 GetWindowRect(QQGamePtr, out rect);
                 Bitmap bt = GetWindow(QQGamePtr, rect.Width - rect.X, rect.Height - rect.Y);
-                if (bt.Height < 100)
-                {
-                    return null;
-                }
                 bt.Save("test.jpg", ImageFormat.Jpeg);
                 return bt;
             }
             catch (Exception e)
             {
-                findQQPtr();
-                if (QQGamePtr == IntPtr.Zero)
-                {
-                    findQQPtr();
-                    if (QQGamePtr == IntPtr.Zero)
-                    {
-                        return null;
-                    }
-                }
-
-                Rectangle rect = new Rectangle();
-                GetWindowRect(QQGamePtr, out rect);
-                Bitmap bt = GetWindow(QQGamePtr, rect.Width - rect.X, rect.Height - rect.Y);
-                if (bt.Height < 100)
-                {
-                    return null;
-                }
-                bt.Save("test.jpg", ImageFormat.Jpeg);
-                return bt;
+                return doTakeImage();
             }
+        }
+        public static Bitmap takeImage()
+        {
+            takeTime = 0;
+            return doTakeImage();
+           
             
             //Image 
 
         }
 
-        public static String getMahjongProcessName()
-        {
-            Console.WriteLine("===============================");
-            Process[] processes = Process.GetProcesses();
-            for (int i = 0; i < processes.Length; i++)
-            {
-                Console.WriteLine(processes[i].ProcessName);
-            }
-            Console.WriteLine("===============================");
-            return "QQ麻将";
-        }
+        
         public static Bitmap GetWindow(IntPtr hWnd, int width, int height)
         {
             IntPtr hscrdc = GetWindowDC(hWnd);

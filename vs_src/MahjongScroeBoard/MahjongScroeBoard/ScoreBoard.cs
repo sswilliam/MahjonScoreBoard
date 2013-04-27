@@ -12,6 +12,7 @@ namespace MahjongScroeBoard
     {
         private Button[] snapshots;
         private Button[] manuals;
+        private Button[] zeros;
         private TextBox[][] scores;
         public ScoreBoard()
         {
@@ -30,6 +31,15 @@ namespace MahjongScroeBoard
                 this.manual13,this.manual14,this.manual15,this.manual16
             };
 
+            zeros = new Button[]{
+                this.zeroBtn1,this.zeroBtn2,this.zeroBtn3,this.zeroBtn4,
+                this.zeroBtn5,this.zeroBtn6,this.zeroBtn7,this.zeroBtn8,
+                this.zeroBtn9,this.zeroBtn10,this.zeroBtn11,this.zeroBtn12,
+                this.zeroBtn13,this.zeroBtn14,this.zeroBtn15,this.zeroBtn16
+            };
+
+
+
             for (int i = 0; i < manuals.Length; i++)
             {
                 
@@ -41,6 +51,11 @@ namespace MahjongScroeBoard
             {
                 snapshots[i].Click += new System.EventHandler(this.snapshot_Click);
             }
+            for (int i = 0; i < zeros.Length; i++)
+            {
+                zeros[i].Click += new System.EventHandler(this.zeroBtn_Click);
+            }
+
                 scores = new TextBox[][]{
                 new TextBox[]{dong1,nan1,xi1,bei1},
                 new TextBox[]{dong2,nan2,xi2,bei2},
@@ -61,7 +76,7 @@ namespace MahjongScroeBoard
             };
             
         }
-
+        
         public void refreshScore()
         {
             int[] score = { 0, 0, 0, 0 };
@@ -89,6 +104,7 @@ namespace MahjongScroeBoard
             nanName.Text = Game.getInstance().nan;
             xiName.Text = Game.getInstance().xi;
             beiName.Text = Game.getInstance().bei;
+            this.gotoRound(Game.getInstance().currentRound);
             refreshScore();
         }
         public void fade()
@@ -106,9 +122,9 @@ namespace MahjongScroeBoard
         {
             if (this.Visible)
             {
-                if (!Game.getInstance().saved)
+                if (Game.getInstance().currentRound != 16)
                 {
-                    DialogResult result = MessageBox.Show("比赛结果尚未保存,确定要退出么？", "关闭", MessageBoxButtons.OKCancel);
+                    DialogResult result = MessageBox.Show("比赛尚未结束,确定要退出么？", "关闭", MessageBoxButtons.OKCancel);
                     Console.WriteLine(result);
                     if (result == DialogResult.OK)
                     {
@@ -176,15 +192,24 @@ namespace MahjongScroeBoard
                 String number = target.Name.Substring(8);
                 int index = Int32.Parse(number);
                 Console.WriteLine("curent " + (index - 1));
-                Bitmap sourceImage = SnapshotTaker.takeImage();
-               // Bitmap sourceImage = new Bitmap("t" + (index - 1) + ".jpg");
+                //Bitmap sourceImage = SnapshotTaker.takeImage();
+                Bitmap sourceImage = new Bitmap("t" + (index - 1) + ".jpg");
                 if (sourceImage == null)
                 {
                     MessageBox.Show("检测QQ麻将游戏失败，请确定已开启游戏或联系开发者");
+                    return;
                 }
                 else
                 {
-                    ViewManager.snapshotScoreBoardUI.resetAndDisplay(index - 1, sourceImage);
+                    if (sourceImage.Height < 100)
+                    {
+                        MessageBox.Show("QQ麻将游戏被最小化，请确保麻将已经打开");
+                        return;
+                    }
+                    else
+                    {
+                        ViewManager.snapshotScoreBoardUI.resetAndDisplay(index - 1, sourceImage);
+                    }
                 }
             }
             catch (Exception ex)
@@ -196,6 +221,47 @@ namespace MahjongScroeBoard
            
         }
 
+        private void zeroBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Button target = (Button)sender;
+                String number = target.Name.Substring(7);
+                int index = Int32.Parse(number);
+                Console.WriteLine("curent " + (index - 1));
+                for(int i = 0;i<4;i++){
+
+                    Game.getInstance().gameInfo[index-1, i] = 0;
+                }
+                if (Game.getInstance().currentRound < 16)
+                {
+                    Game.getInstance().currentRound++;
+                    this.gotoRound(Game.getInstance().currentRound);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Alarmer.Show("Error when open snapshot score borad: " + ex.StackTrace);
+            }
+        }
+
+        public void gotoRound(int round)
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                if (i == round)
+                {
+                    snapshots[i].Enabled = true;
+                    zeros[i].Enabled = true;
+                }
+                else
+                {
+                    snapshots[i].Enabled = false;
+                    zeros[i].Enabled = false;
+                }
+            }
+        }
 
         private void historyBtn_Click(object sender, EventArgs e)
         {
