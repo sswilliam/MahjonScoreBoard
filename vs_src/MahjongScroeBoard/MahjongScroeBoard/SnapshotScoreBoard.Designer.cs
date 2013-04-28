@@ -44,9 +44,11 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.snapshotInfo = new System.Windows.Forms.Label();
             this.retakeBtn = new System.Windows.Forms.Button();
+            this.fanbox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.snapshotContent)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -146,6 +148,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.fanbox);
             this.groupBox3.Location = new System.Drawing.Point(1, 551);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(424, 100);
@@ -190,6 +193,15 @@
             this.retakeBtn.TabIndex = 6;
             this.retakeBtn.Text = "重拍";
             this.retakeBtn.UseVisualStyleBackColor = true;
+            this.retakeBtn.Click += new System.EventHandler(this.retakeBtn_Click);
+            // 
+            // fanbox
+            // 
+            this.fanbox.Location = new System.Drawing.Point(7, 20);
+            this.fanbox.Multiline = true;
+            this.fanbox.Name = "fanbox";
+            this.fanbox.Size = new System.Drawing.Size(409, 74);
+            this.fanbox.TabIndex = 0;
             // 
             // SnapshotScoreBoard
             // 
@@ -214,6 +226,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.snapshotContent)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,6 +251,7 @@
         private System.Windows.Forms.TextBox dongScore;
         private System.Windows.Forms.Label snapshotInfo;
         private System.Windows.Forms.Button retakeBtn;
+        private System.Windows.Forms.TextBox fanbox;
 
     }
 }

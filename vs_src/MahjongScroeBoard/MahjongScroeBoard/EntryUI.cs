@@ -22,6 +22,7 @@ namespace MahjongScroeBoard
             ViewManager.manualScroeBoardUI = new ManualScoreBoard();
             ViewManager.scoreBoardUI = new ScoreBoard();
             ViewManager.snapshotScoreBoardUI = new SnapshotScoreBoard();
+            FanNameParser.getInstance().init();
 
            /* printArrays(new int[] { 4, 4, 4, 4 });
             printArrays(new int[] { 4, 3, 2, 1 });

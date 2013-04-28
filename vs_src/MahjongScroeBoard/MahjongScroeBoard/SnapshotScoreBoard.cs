@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Collections;
+using System.IO;
 
 namespace MahjongScroeBoard
 {
@@ -25,27 +26,28 @@ namespace MahjongScroeBoard
 
         }
 
-        public void resetAndDisplay(int targetRow,Bitmap sourceImage)
+        private void parsingImage(int targetRow, Bitmap sourceImage)
         {
+            this.snapshotInfo.Text = "";
             this.targetRow = targetRow;
             this.cachedImage = sourceImage;
             for (int i = 0; i < 4; i++)
             {
                 scoresContents[i] = 0;
-                
+
             }
             dongScore.Text = scoresContents[0] + "";
             nanScore.Text = scoresContents[1] + "";
             xiScore.Text = scoresContents[2] + "";
             beiScore.Text = scoresContents[3] + "";
-                //this.cachedImage = new Bitmap("t"+targetRow+".jpg");
-                // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
-                this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
+            //this.cachedImage = new Bitmap("t"+targetRow+".jpg");
+            // Console.WriteLine(Game.getInstance().roundPath + (targetRow+1) + ".jpg");
+            this.cachedImage.Save(Game.getInstance().roundPath + (targetRow + 1) + ".jpg", ImageFormat.Jpeg);
             //Bitmap core = new Bitmap(410, 435, PixelFormat.Format24bppRgb);
             int outwidth = this.cachedImage.Width - 190;
             int outHeight = this.cachedImage.Height;
-            int startX = (outwidth - 410) / 2-4;
-            int startY = (outHeight - 435) / 2-49;
+            int startX = (outwidth - 410) / 2 - 4;
+            int startY = (outHeight - 435) / 2 - 49;
             Rectangle rg = new Rectangle(startX, startY, 410, 435);
             Bitmap core = this.cachedImage.Clone(rg, PixelFormat.Format24bppRgb);
             //Graphics g = Graphics.FromImage(core);
@@ -57,12 +59,12 @@ namespace MahjongScroeBoard
             {
 
                 ArrayList colors = new ArrayList();
-                Rectangle scoreRect = new Rectangle(285, 276+i*20, 50, 20);
+                Rectangle scoreRect = new Rectangle(285, 276 + i * 20, 50, 20);
                 Bitmap score = core.Clone(scoreRect, PixelFormat.Format24bppRgb);
-               // score.Save(Game.getInstance().roundPath + (targetRow + 1) + "s_" + i + ".jpg", ImageFormat.Jpeg);
+                // score.Save(Game.getInstance().roundPath + (targetRow + 1) + "s_" + i + ".jpg", ImageFormat.Jpeg);
 
-                Bitmap bwScore = getBWImage(score);
-                ArrayList spiltedImages = seperateBlocks(bwScore);
+                Bitmap bwScore = ImageUtils.toBinaryImage(score);
+                ArrayList spiltedImages = ImageUtils.spiltImage(bwScore);
                 object[] datas = spiltedImages.ToArray();
                 if (datas.Length > 1)
                 {
@@ -77,81 +79,61 @@ namespace MahjongScroeBoard
                         totalNumber = getTotalNumberFromArray(datas, 0);
                     }
                     Console.WriteLine("final score " + totalNumber);
-                    scoreViews[i].Text = ""+totalNumber;
+                    scoreViews[i].Text = "" + totalNumber;
                     scoresContents[i] = totalNumber;
                 }
-                    
-               // bwScore.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + ".bmp", ImageFormat.Bmp);
-            }
 
-            for (int i = 0; i < 3; i++)
+                // bwScore.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + ".bmp", ImageFormat.Bmp);
+            }
+            if (scoresContents[0] == 0)
             {
-                for (int j = 0; j < 3; j++)
+
+                this.snapshotInfo.Text = "未检测任何结果，疑似荒庄";
+            }
+            StringBuilder sb = new StringBuilder();
+            this.fanbox.Text = "";
+            for (int j = 0; j < 3; j++)
+            {
+                for (int i = 0; i < 3; i++)
                 {
 
-                    Rectangle fanRect = new Rectangle(35+120*i, 153+25*j, 120, 25);
+                    Rectangle fanRect = new Rectangle(35 + 120 * i, 153 + 25 * j, 120, 25);
                     Bitmap temp = core.Clone(fanRect, PixelFormat.Format24bppRgb);
                     temp.Save("test\\" + (targetRow + 1) + "fan_" + i + j + ".jpg");
-                    Bitmap tempBW = getBWImage(temp);
+                    Bitmap tempBW = ImageUtils.toBinaryImage(temp);
                     tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bw.jpg");
 
                     filterSinglePoints(tempBW);
                     tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bwf.jpg");
 
-                    ArrayList names = seperateBlocks(tempBW);
+                    ArrayList names = ImageUtils.spiltImage(tempBW);
                     for (int k = 0; k < names.Count; k++)
                     {
-                        ((Bitmap)names[k]).Save("test\\" + targetRow + i + j + k + ".bmp",ImageFormat.Bmp);
+                        ((Bitmap)names[k]).Save("test\\" + targetRow + i + j + k + ".bmp", ImageFormat.Bmp);
+                    }
+                    if (names.Count > 0)
+                    {
+                        sb.Append(FanNameParser.getInstance().getFan(names));
+                        sb.Append('\t');
+
                     }
 
                 }
             }
+            this.fanbox.Text = sb.ToString();
+            Console.WriteLine("------------------------------------------------");
 
-                Console.WriteLine("------------------------------------------------");
+        }
 
+        public void resetAndDisplay(int targetRow,Bitmap sourceImage)
+        {
+            this.retakeIndex = 0;
+            this.parsingImage(targetRow, sourceImage);
             this.ShowDialog(ViewManager.scoreBoardUI);
 
         }
 
-        private ArrayList seperateBlocks(Bitmap source)
-        {
-            ArrayList spiltedImages = new ArrayList();
-            Boolean isBlack = true;
-            int beginX = 0;
-            for (int w = 0; w < source.Width; w++)
-            {
-                Boolean hasWhite = false;
-                for (int h = 0; h < source.Height; h++)
-                {
-                    Color currentPoint = source.GetPixel(w, h);
-                    if (currentPoint.R == 255 && currentPoint.G == 255 && currentPoint.B == 255)
-                    {
-                        hasWhite = true;
-                        break;
-                    }
-                }
-                if (hasWhite)
-                {
-                    if (isBlack)
-                    {
-                        beginX = w;
-                        isBlack = false;
-                    }
-                }
-                else
-                {
-                    if (!isBlack)
-                    {
-                        isBlack = true;
-                        Rectangle speiteBlock = new Rectangle(beginX, 0, w - beginX, source.Height);
-                        Bitmap spiteItem = cutBlackHeadAndTail(source.Clone(speiteBlock, PixelFormat.Format24bppRgb));
-                        //spiteItem.Save(Game.getInstance().roundPath + (targetRow + 1) + "wb_" + i + "(" + spiltedImages.Count + ").bmp", ImageFormat.Bmp);
-                        spiltedImages.Add(spiteItem);
-                    }
-                }
-            }
-            return spiltedImages;
-        }
+       
         private void filterSinglePoints(Bitmap source)
         {
             for (int i = 60; i < source.Width; i++)
@@ -195,7 +177,7 @@ namespace MahjongScroeBoard
                         int ty = pt.Y + j - 1;
                         
                         //Console.Write("{" + tx + ":" + ty + "},");
-                        if (notInList(tx, ty, traveledPoint) && tx > -1 && ty > -1 && tx < source.Width + 1 && ty < source.Height + 1)
+                        if (notInList(tx, ty, traveledPoint) && tx > -1 && ty > -1 && tx < source.Width  && ty < source.Height)
                         {
                             Color targetColor = source.GetPixel(tx, ty);
                             if (isWhite(targetColor))
@@ -247,30 +229,7 @@ namespace MahjongScroeBoard
                 return true;
             }
         }
-        public Bitmap getBWImage(Bitmap source)
-        {
-            Bitmap bwScore = new Bitmap(source.Width, source.Height, PixelFormat.Format24bppRgb);
-
-            for (int w = 0; w < source.Width; w++)
-            {
-                for (int h = 0; h < source.Height; h++)
-                {
-                    Color color = source.GetPixel(w, h);
-                    if (color.R > 180 && color.G > 180 && color.B > 180)
-                    {
-                        bwScore.SetPixel(w, h, Color.White);
-                    }
-                    else
-                    {
-                        bwScore.SetPixel(w, h, Color.Black);
-                    }
-
-                }
-
-                //Console.Write("\n");
-            }
-            return bwScore;
-        }
+        
 
         public int getTotalNumberFromArray(object[] source, int first)
         {
@@ -282,51 +241,7 @@ namespace MahjongScroeBoard
             return total;
         }
 
-        private Bitmap cutBlackHeadAndTail(Bitmap source)
-        {
-            int startY = 0;
-            for (int i = 0; i < source.Height; i++)
-            {
-                Boolean hasWhite = false;
-                
-                for (int j = 0; j < source.Width; j++)
-                {
-                    Color currentPoint = source.GetPixel(j,i);
-                    if (currentPoint.R == 255 && currentPoint.G == 255 && currentPoint.B == 255)
-                    {
-                        hasWhite = true;
-                        break;
-                    }
-                }
-                if (hasWhite)
-                {
-                    startY = i;
-                    break;
-                }
-            }
-            int endY = source.Height - 1;
-            for (int i = source.Height - 1; i > -1; i--)
-            {
-                Boolean hasWhite = false;
-
-                for (int j = 0; j < source.Width; j++)
-                {
-                    Color currentPoint = source.GetPixel(j, i);
-                    if (currentPoint.R == 255 && currentPoint.G == 255 && currentPoint.B == 255)
-                    {
-                        hasWhite = true;
-                        break;
-                    }
-                }
-                if (hasWhite)
-                {
-                    endY = i+1;
-                    break;
-                }
-            }
-
-            return source.Clone(new Rectangle(0, startY, source.Width, endY - startY),PixelFormat.Format24bppRgb);
-        }
+       
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
@@ -494,6 +409,38 @@ namespace MahjongScroeBoard
 
             e.Cancel = true;
             this.fade();
+        }
+
+        private int retakeIndex = 0;
+
+        private ArrayList snapshots = new ArrayList();
+        private void retakeBtn_Click(object sender, EventArgs e)
+        {
+            if (snapshots.Count == 0)
+            {
+                addSnapshot(new DirectoryInfo("testdata"));
+                Console.WriteLine(snapshots.Count);
+            }
+            if(retakeIndex < snapshots.Count){
+                this.snapshotInfo.Text = retakeIndex+"/"+snapshots.Count;
+            Bitmap data = new Bitmap((String)snapshots[this.retakeIndex]);
+            this.parsingImage(this.targetRow, data);
+            retakeIndex++;
+            }
+        }
+
+        private void addSnapshot(DirectoryInfo root){
+            DirectoryInfo[] dirs = root.GetDirectories();
+            FileInfo[] files = root.GetFiles();
+            for(int i = 0;i<files.Length;i++){
+                if(files[i].Name.EndsWith(".jpg")){
+                    snapshots.Add(files[i].FullName);
+                }
+            }
+            for (int i = 0; i < dirs.Length; i++)
+            {
+                addSnapshot(dirs[i]);
+            }
         }
 
         

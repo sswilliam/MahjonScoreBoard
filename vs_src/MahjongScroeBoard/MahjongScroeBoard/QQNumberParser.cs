@@ -32,7 +32,7 @@ namespace MahjongScroeBoard
             int currentNumber = 0;
             for (int i = 0; i < 10; i++)
             {
-                double matchRate = getmatchRate(source, numbers[i]);
+                double matchRate = ImageUtils.getmatchRate(source, numbers[i]);
                 //Console.WriteLine(i+" "+matchRate);
                 if (matchRate > 0.95)
                 {
@@ -51,23 +51,7 @@ namespace MahjongScroeBoard
             }
             return currentNumber;
         }
-        private static double getmatchRate(Bitmap source, Bitmap target)
-        {
-            int minWidth = Math.Min(source.Width, target.Width);
-            int minHeight = Math.Min(source.Height, target.Height);
-            int matchCount = 0;
-            for (int i = 0; i < minWidth; i++)
-            {
-                for (int j = 0; j < minHeight; j++)
-                {
-                    if (source.GetPixel(i, j).ToArgb() == target.GetPixel(i, j).ToArgb())
-                    {
-                        matchCount++;
-                    }
-                }
-            }
-            return (1.0*matchCount )/ (target.Width * target.Height);
-        }
+       
 
     }
 }
