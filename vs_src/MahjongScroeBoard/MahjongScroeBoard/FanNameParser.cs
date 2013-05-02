@@ -57,6 +57,7 @@ namespace MahjongScroeBoard
             {
                 double matchRate = ImageUtils.getmatchRate(source,(Bitmap)snapshorts[i]);
                 if(matchRate > 0.98){
+                    currentMatchRate = matchRate;
                     index = i;
                     break;
                 }
@@ -66,6 +67,7 @@ namespace MahjongScroeBoard
                     currentMatchRate = matchRate;
                 }
             }
+            //Console.WriteLine("Match Rate: " + currentMatchRate + (String)words[index]);
             return (String)words[index];
            
         }
@@ -94,7 +96,7 @@ namespace MahjongScroeBoard
                 for (int i = 0; i < lines.Count; i++)
                 {
                     String tempLine = (String)lines[i];
-                    String[] blocks = tempLine.Split(' ');
+                    String[] blocks = tempLine.Split('#');
                     if (blocks.Length == 2)
                     {
                         table.Add(blocks[1].ToString(), blocks[0].ToString());

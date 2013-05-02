@@ -1,0 +1,84 @@
+﻿大四喜 da_si_xi 88
+大三元 da_san_yuan 88
+绿一色 88
+九莲宝灯 88
+四杠 si_gang 88
+连七对 88
+十三幺 88
+清幺九 qing_yao_jiu 88
+小四喜 xiao1_xiao2_si_xi 64
+小三元 xiao1_xiao2_san_yuan 64
+字一色 zi2_yi_se 64
+四暗刻 si_an_ke 64
+一色双龙会 64
+一色四同顺yi_se_si_tong_shun 48
+一色四节高 48
+一色四步高 yi_se_si_bu_gao 32
+一色四步高 yi_se_si_bu_gao2 32
+三杠 san_gang 32
+混幺九 hun_yao_jiu 32
+七对qi2_dui 24
+七星不靠 qi2_xing_bu2_kao 24
+全双刻 quan2_shuang_ke 24
+清一色 qing_yi_se 24
+一色三同顺yi_se_san_tong_shun 24
+一色三节高 24
+全大 quan2_da 24
+全中 24
+全小 quan2_xiao1_xiao2 24
+清龙 qing_long 24
+三色双龙会 16
+一色三步高yi_se_san_bu_gao 16
+一色三步高yi_se_san_bu_gao2 16
+全带五quan2_dai_wu 16
+三同刻san_tong_ke 16
+三暗刻 san_an_ke 16
+全不靠quan_bu2_kao 12
+组合龙zu_he_long 12
+大于五 da_yu_wu 12
+小于五xiao1_xiao2_yu_wu 12
+三风刻 san_feng2_ke 12
+花龙 hua_long 8
+推不倒 tui_bu2_dao 8
+三色三同顺 san_se_san_tong_shun 8
+三色三节高 8
+无番和 wu2_fan_hu 8
+妙手回春 8
+海底捞月 8
+杠上开花 8
+抢杠和 8
+碰碰和 peng_peng_hu 6
+混一色 hun_yi_se 6
+三色三步高 san_se_san_bu_gao 6
+三色三步高 san_se_san_bu_gao2 6
+五门齐wu_men1_men2_qi 6
+全求人 quan2_qiu_ren 6
+双暗杠 shuang_an_gang 6
+双箭刻 shuang_jian_ke 6
+全带幺 quan2_dai_yao 4
+不求人 bu2_qiu_ren 4
+双明杠 shuang_ming_gang 4
+和绝张 hu_jue_zhang 4
+箭刻 jian_ke 2
+圈风刻 quan_feng2_ke 2
+门风刻 men1_men2_feng2_ke 2
+门前清 men1_men2_qing 2
+平和 ping_hu 2
+四归一 si_gui_yi 2
+双同刻 shuang_tong_ke 2
+双暗刻 shuang_an_ke 2
+暗杠 an_gang 2
+断幺 duan_yao 2
+一般高 yi_ban_gao3 1
+喜相逢 xi_xiang_feng 1
+连六 lian_liu 1
+老少副 lao_shao_fu 1
+幺九刻 yao_jiu_ke 1
+明杠 ming_gang 1
+缺一门 que_yi_men1_men2 1
+无字 wu2_zi2 1
+边张 bian_zhang 1
+坎张 kan_zhang 1
+单钓将 dan_diao_jiang 1
+自摸 zi_mo 1
+花牌 hua_pai 1

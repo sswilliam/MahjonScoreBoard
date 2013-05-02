@@ -144,7 +144,7 @@ namespace MahjongScroeBoard
                     {
                         ArrayList traveledPoint = new ArrayList();
                         traveledPoint.Add(new Point(i, j));
-                        Boolean b = testIsGroup(new Point(i, j), source, 5, 0, traveledPoint);
+                        Boolean b = testIsGroup(new Point(i, j), source, 8, 0, traveledPoint);
                         if (!b) 
                         {
                             source.SetPixel(i, j, Color.Black);
@@ -423,9 +423,10 @@ namespace MahjongScroeBoard
             }
             if(retakeIndex < snapshots.Count){
                 this.snapshotInfo.Text = retakeIndex+"/"+snapshots.Count;
-            Bitmap data = new Bitmap((String)snapshots[this.retakeIndex]);
-            this.parsingImage(this.targetRow, data);
-            retakeIndex++;
+                Bitmap data = new Bitmap((String)snapshots[this.retakeIndex]);
+                this.parsingImage(this.targetRow, data);
+                this.snapshotInfo.Text = retakeIndex + "/" + snapshots.Count + " : " + this.snapshots[retakeIndex].ToString().Substring(40);
+                retakeIndex++;
             }
         }
 
