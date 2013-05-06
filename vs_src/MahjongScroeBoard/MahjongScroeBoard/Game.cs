@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Xml;
 
 namespace MahjongScroeBoard
 {
@@ -15,7 +16,9 @@ namespace MahjongScroeBoard
         public String bei;
         public Boolean saved = false;
         public int[,] gameInfo = new int[16,4];
+        public String[] fans = new String[16];
         public int currentRound = 0;
+        public String judgerName = "";
         private Game()
         {
         }
@@ -37,47 +40,71 @@ namespace MahjongScroeBoard
             int beiLeng = getNameSpace(Game.getInstance().bei.Length);
             int[] lengs = { dongLeng, nanLeng, xiLeng, beiLeng };
             StringBuilder sb = new StringBuilder();
-            sb.Append(fillString("", firstLeng, ' '));
-            sb.Append(fillString(Game.getInstance().dong, dongLeng, ' '));
-            sb.Append(fillString(Game.getInstance().nan, nanLeng, ' '));
-            sb.Append(fillString(Game.getInstance().xi, xiLeng, ' '));
-            sb.Append(fillString(Game.getInstance().bei, beiLeng, ' '));
+            sb.Append('\t');
+            sb.Append(Game.getInstance().dong);
+            sb.Append('\t');
+            sb.Append(Game.getInstance().nan);
+            sb.Append('\t');
+            sb.Append(Game.getInstance().xi);
+            sb.Append('\t');
+            sb.Append(Game.getInstance().bei);
+            sb.Append('\t');
+           // sb.Append(TextUtils.fillString("", firstLeng, ' '));
+           // sb.Append(TextUtils.fillString(Game.getInstance().dong, dongLeng, ' '));
+           // sb.Append(TextUtils.fillString(Game.getInstance().nan, nanLeng, ' '));
+           // sb.Append(TextUtils.fillString(Game.getInstance().xi, xiLeng, ' '));
+           // sb.Append(TextUtils.fillString(Game.getInstance().bei, beiLeng, ' '));
             sb.Append("\r\n");
             int[] totals = { 0, 0, 0, 0 };
             for (int i = 0; i < 16; i++)
             {
                 if (i % 4 == 0)
                 {
-                    sb.Append(fillString(dnxbString[i / 4], firstLeng, ' '));
+                   // sb.Append(TextUtils.fillString(dnxbString[i / 4], firstLeng, ' '));
+                    sb.Append(dnxbString[i / 4]);
+                    sb.Append('\t');
                 }
                 else
                 {
-                    sb.Append(fillString("", firstLeng, ' '));
+                    sb.Append('\t');
+                   // sb.Append(TextUtils.fillString("", firstLeng, ' '));
                 }
                 for (int j = 0; j < 4; j++)
                 {
-                    sb.Append(fillString(Game.getInstance().gameInfo[i, j] + "", lengs[j], ' '));
+                    //sb.Append(TextUtils.fillString(Game.getInstance().gameInfo[i, j] + "", lengs[j], ' '));
+                    sb.Append(Game.getInstance().gameInfo[i, j]);
+                    sb.Append('\t');
                     totals[j] += Game.getInstance().gameInfo[i, j];
                 }
+                sb.Append(fans[i]);
                 sb.Append("\r\n");
             }
-            sb.Append(fillString("", firstLeng + dongLeng + nanLeng + xiLeng + beiLeng, '-'));
+            //sb.Append('\t');
+            sb.Append(TextUtils.fillString("", firstLeng + dongLeng + nanLeng + xiLeng + beiLeng, '-'));
             sb.Append("\r\n");
-            sb.Append(fillString("总分", firstLeng, ' '));
+            sb.Append("总分\t");
+            //sb.Append(TextUtils.fillString("总分", firstLeng, ' '));
             for (int i = 0; i < 4; i++)
             {
-                sb.Append(fillString(totals[i] + "", lengs[i], ' '));
+                sb.Append(totals[i]);
+                sb.Append('\t');
+                //sb.Append(TextUtils.fillString(totals[i] + "", lengs[i], ' '));
             }
             sb.Append("\r\n");
-            sb.Append(fillString("", firstLeng + dongLeng + nanLeng + xiLeng + beiLeng, '-'));
+            sb.Append(TextUtils.fillString("", firstLeng + dongLeng + nanLeng + xiLeng + beiLeng, '-'));
             sb.Append("\r\n");
             double[] bigScore = getBigScore(totals);
 
-            sb.Append(fillString("总计", firstLeng, ' '));
+            sb.Append("总计\t");
+            //sb.Append(TextUtils.fillString("总计", firstLeng, ' '));
             for (int i = 0; i < 4; i++)
             {
-                sb.Append(fillString(bigScore[i] + "", lengs[i], ' '));
+                sb.Append(bigScore[i]);
+                sb.Append('\t');
+                //sb.Append(TextUtils.fillString(bigScore[i] + "", lengs[i], ' '));
             }
+            sb.Append("裁判: ");
+            sb.Append(judgerName);
             sb.Append("\r\n");
 
                 return sb.ToString();
@@ -259,25 +286,7 @@ namespace MahjongScroeBoard
             return bigScore;
         }
 
-        private String fillString(String source, int length, char withChar)
-        {
-            int sourceLength = source.Length;
-            if (sourceLength > length)
-            {
-                return source.Substring(0, length);
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                int dt = length - sourceLength;
-                sb.Append(source);
-                for (int i = 0; i < dt; i++)
-                {
-                    sb.Append(withChar);
-                }
-                return sb.ToString();
-            }
-        }
+       
         public void init()
         {
             roundPath = "scores\\"+generateID()+"\\";
@@ -287,6 +296,7 @@ namespace MahjongScroeBoard
             nan = "";
             xi = "";
             bei = "";
+            this.judgerName = "";
             saved = false;
             for (int i = 0; i < 16; i++)
             {
@@ -294,6 +304,7 @@ namespace MahjongScroeBoard
                 {
                     gameInfo[i, j] = 0;
                 }
+                fans[i] = "";
             }
         }
 
@@ -310,6 +321,7 @@ namespace MahjongScroeBoard
             writer.Flush();
             writer.Close();
             fs.Close();
+            saveXML();
 
         }
         public static string generateID()
@@ -330,6 +342,56 @@ namespace MahjongScroeBoard
             sb.Append('_');
             sb.Append(dt.Millisecond);
             return sb.ToString();
+        }
+
+        public void saveXML()
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                XmlElement root = doc.CreateElement("game");
+                doc.AppendChild(root);
+                XmlAttribute dongAttr = doc.CreateAttribute("dong");
+                dongAttr.Value = dong;
+                XmlAttribute nanAttr = doc.CreateAttribute("nan");
+                nanAttr.Value = nan;
+                XmlAttribute xiAttr = doc.CreateAttribute("xi");
+                xiAttr.Value = xi;
+                XmlAttribute beiAttr = doc.CreateAttribute("bei");
+                beiAttr.Value = bei;
+                XmlAttribute refereeAttr = doc.CreateAttribute("referee");
+                refereeAttr.Value = judgerName;
+                root.Attributes.Append(dongAttr);
+                root.Attributes.Append(nanAttr);
+                root.Attributes.Append(xiAttr);
+                root.Attributes.Append(beiAttr);
+                root.Attributes.Append(refereeAttr);
+                for (int i = 0; i < 16; i++)
+                {
+                    XmlElement scoreNode = doc.CreateElement("round");
+                    XmlAttribute dongScore = doc.CreateAttribute("dong");
+                    dongScore.Value = "" + gameInfo[i, 0];
+                    XmlAttribute nanScore = doc.CreateAttribute("nan");
+                    nanScore.Value = "" + gameInfo[i, 1];
+                    XmlAttribute xiScore = doc.CreateAttribute("xi");
+                    xiScore.Value = "" + gameInfo[i, 2];
+                    XmlAttribute beiScore = doc.CreateAttribute("bei");
+                    beiScore.Value = "" + gameInfo[i, 3];
+                    XmlAttribute fan = doc.CreateAttribute("fan");
+                    fan.Value = fans[i];
+                    scoreNode.Attributes.Append(dongScore);
+                    scoreNode.Attributes.Append(nanScore);
+                    scoreNode.Attributes.Append(xiScore);
+                    scoreNode.Attributes.Append(beiScore);
+                    scoreNode.Attributes.Append(fan);
+                    root.AppendChild(scoreNode);
+                }
+                doc.Save(roundPath + "score.xml");
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
     }

@@ -40,6 +40,12 @@
             this.entryInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.thridPartyCheck = new System.Windows.Forms.CheckBox();
+            this.thirdPartyName = new System.Windows.Forms.TextBox();
+            this.dongRadio = new System.Windows.Forms.RadioButton();
+            this.xiRadio = new System.Windows.Forms.RadioButton();
+            this.nanRadio = new System.Windows.Forms.RadioButton();
+            this.beiRadio = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // dongBtn
@@ -116,7 +122,7 @@
             // 
             // fightBtn
             // 
-            this.fightBtn.Location = new System.Drawing.Point(134, 311);
+            this.fightBtn.Location = new System.Drawing.Point(134, 356);
             this.fightBtn.Name = "fightBtn";
             this.fightBtn.Size = new System.Drawing.Size(137, 41);
             this.fightBtn.TabIndex = 9;
@@ -128,7 +134,7 @@
             // 
             this.entryInfo.AutoSize = true;
             this.entryInfo.ForeColor = System.Drawing.Color.Red;
-            this.entryInfo.Location = new System.Drawing.Point(132, 272);
+            this.entryInfo.Location = new System.Drawing.Point(132, 338);
             this.entryInfo.Name = "entryInfo";
             this.entryInfo.Size = new System.Drawing.Size(0, 13);
             this.entryInfo.TabIndex = 10;
@@ -148,17 +154,85 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(111, 365);
+            this.label2.Location = new System.Drawing.Point(111, 404);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "~~~七星阁打造神奇QQ竞技平台~~~";
             // 
+            // thridPartyCheck
+            // 
+            this.thridPartyCheck.AutoSize = true;
+            this.thridPartyCheck.Location = new System.Drawing.Point(96, 314);
+            this.thridPartyCheck.Name = "thridPartyCheck";
+            this.thridPartyCheck.Size = new System.Drawing.Size(86, 17);
+            this.thridPartyCheck.TabIndex = 13;
+            this.thridPartyCheck.Text = "第三方裁判";
+            this.thridPartyCheck.UseVisualStyleBackColor = true;
+            this.thridPartyCheck.CheckedChanged += new System.EventHandler(this.thridPartyCheck_CheckedChanged);
+            // 
+            // thirdPartyName
+            // 
+            this.thirdPartyName.Location = new System.Drawing.Point(187, 312);
+            this.thirdPartyName.Name = "thirdPartyName";
+            this.thirdPartyName.Size = new System.Drawing.Size(142, 20);
+            this.thirdPartyName.TabIndex = 14;
+            // 
+            // dongRadio
+            // 
+            this.dongRadio.AutoSize = true;
+            this.dongRadio.Location = new System.Drawing.Point(260, 64);
+            this.dongRadio.Name = "dongRadio";
+            this.dongRadio.Size = new System.Drawing.Size(49, 17);
+            this.dongRadio.TabIndex = 15;
+            this.dongRadio.TabStop = true;
+            this.dongRadio.Text = "裁判";
+            this.dongRadio.UseVisualStyleBackColor = true;
+            // 
+            // xiRadio
+            // 
+            this.xiRadio.AutoSize = true;
+            this.xiRadio.Location = new System.Drawing.Point(260, 283);
+            this.xiRadio.Name = "xiRadio";
+            this.xiRadio.Size = new System.Drawing.Size(49, 17);
+            this.xiRadio.TabIndex = 16;
+            this.xiRadio.TabStop = true;
+            this.xiRadio.Text = "裁判";
+            this.xiRadio.UseVisualStyleBackColor = true;
+            // 
+            // nanRadio
+            // 
+            this.nanRadio.AutoSize = true;
+            this.nanRadio.Location = new System.Drawing.Point(329, 194);
+            this.nanRadio.Name = "nanRadio";
+            this.nanRadio.Size = new System.Drawing.Size(49, 17);
+            this.nanRadio.TabIndex = 17;
+            this.nanRadio.TabStop = true;
+            this.nanRadio.Text = "裁判";
+            this.nanRadio.UseVisualStyleBackColor = true;
+            // 
+            // beiRadio
+            // 
+            this.beiRadio.AutoSize = true;
+            this.beiRadio.Location = new System.Drawing.Point(31, 194);
+            this.beiRadio.Name = "beiRadio";
+            this.beiRadio.Size = new System.Drawing.Size(49, 17);
+            this.beiRadio.TabIndex = 18;
+            this.beiRadio.TabStop = true;
+            this.beiRadio.Text = "裁判";
+            this.beiRadio.UseVisualStyleBackColor = true;
+            // 
             // EntryUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 392);
+            this.ClientSize = new System.Drawing.Size(414, 422);
+            this.Controls.Add(this.beiRadio);
+            this.Controls.Add(this.nanRadio);
+            this.Controls.Add(this.xiRadio);
+            this.Controls.Add(this.dongRadio);
+            this.Controls.Add(this.thirdPartyName);
+            this.Controls.Add(this.thridPartyCheck);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.entryInfo);
@@ -172,9 +246,9 @@
             this.Controls.Add(this.nanbtn);
             this.Controls.Add(this.dongBtn);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(430, 430);
+            this.MaximumSize = new System.Drawing.Size(430, 460);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(430, 430);
+            this.MinimumSize = new System.Drawing.Size(430, 460);
             this.Name = "EntryUI";
             this.Text = "Mahjone Score Board";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EntryUI_FormClosing);
@@ -198,6 +272,12 @@
         private System.Windows.Forms.Label entryInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox thridPartyCheck;
+        private System.Windows.Forms.TextBox thirdPartyName;
+        private System.Windows.Forms.RadioButton dongRadio;
+        private System.Windows.Forms.RadioButton xiRadio;
+        private System.Windows.Forms.RadioButton nanRadio;
+        private System.Windows.Forms.RadioButton beiRadio;
     }
 }
 
