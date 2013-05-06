@@ -249,32 +249,32 @@ namespace MahjongScroeBoard
 
         private void snapshot_Click(object sender, EventArgs e)
         {
-            Button target = (Button)sender;
-            String number = target.Name.Substring(8);
-            int index = Int32.Parse(number);
-            Console.WriteLine("curent " + (index - 1));
-            //Bitmap sourceImage = SnapshotTaker.takeImage();
-            Bitmap sourceImage = new Bitmap("specialdata\\" + (index - 1) + ".jpg");
-            if (sourceImage == null)
+            
+            try
             {
-                MessageBox.Show("检测QQ麻将游戏失败，请确定已开启游戏或联系开发者");
-                return;
-            }
-            else
-            {
-                if (sourceImage.Height < 100)
+                Button target = (Button)sender;
+                String number = target.Name.Substring(8);
+                int index = Int32.Parse(number);
+                Console.WriteLine("curent " + (index - 1));
+                //Bitmap sourceImage = SnapshotTaker.takeImage();
+                Bitmap sourceImage = new Bitmap("t" + (index - 1) + ".jpg");
+                if (sourceImage == null)
                 {
-                    MessageBox.Show("QQ麻将游戏被最小化，请确保麻将已经打开");
+                    MessageBox.Show("检测QQ麻将游戏失败，请确定已开启游戏或联系开发者");
                     return;
                 }
                 else
                 {
-                    ViewManager.snapshotScoreBoardUI.resetAndDisplay(index - 1, sourceImage);
+                    if (sourceImage.Height < 100)
+                    {
+                        MessageBox.Show("QQ麻将游戏被最小化，请确保麻将已经打开");
+                        return;
+                    }
+                    else
+                    {
+                        ViewManager.snapshotScoreBoardUI.resetAndDisplay(index - 1, sourceImage);
+                    }
                 }
-            }
-            try
-            {
-               
             }
             catch (Exception ex)
             {

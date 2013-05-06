@@ -22,6 +22,9 @@ namespace MahjongScroeBoard
             ViewManager.manualScroeBoardUI = new ManualScoreBoard();
             ViewManager.scoreBoardUI = new ScoreBoard();
             ViewManager.snapshotScoreBoardUI = new SnapshotScoreBoard();
+            this.dongRadio.Checked = true;
+            this.thridPartyCheck.Checked = false;
+            syncJudgement();
             FanNameParser.getInstance().init();
 
            /* printArrays(new int[] { 4, 4, 4, 4 });
@@ -139,11 +142,44 @@ namespace MahjongScroeBoard
                     entryInfo.Text = "姓名重复";
                     return;
                 }
+
                 Game.getInstance().init();
                 Game.getInstance().dong = dongName.Text.Trim();
                 Game.getInstance().nan = nanName.Text.Trim();
                 Game.getInstance().xi = xiName.Text.Trim();
                 Game.getInstance().bei = beiName.Text.Trim();
+                if (thridPartyCheck.Checked)
+                {
+                    if (thirdPartyName.Text.Trim().Length == 0)
+                    {
+                        entryInfo.Text = "第三方裁判名为空";
+                        return;
+
+                    }
+                    else
+                    {
+                        Game.getInstance().judgerName = thirdPartyName.Text.Trim();
+                    }
+                }
+                else
+                {
+                    if (dongRadio.Checked)
+                    {
+                        Game.getInstance().judgerName = dongName.Text.Trim();
+                    }
+                    if (nanRadio.Checked)
+                    {
+                        Game.getInstance().judgerName = nanName.Text.Trim();
+                    }
+                    if (xiRadio.Checked)
+                    {
+                        Game.getInstance().judgerName = xiName.Text.Trim();
+                    }
+                    if (beiRadio.Checked)
+                    {
+                        Game.getInstance().judgerName = beiName.Text.Trim();
+                    }
+                }
                 entryInfo.Text = "";
                 ViewManager.entryUI.fade();
                 ViewManager.manualScroeBoardUI.refreshDataSet();
@@ -173,6 +209,9 @@ namespace MahjongScroeBoard
             nanName.Text = "";
             xiName.Text = "";
             beiName.Text = "";
+            this.dongRadio.Checked = true;
+            this.thridPartyCheck.Checked = false;
+            syncJudgement();
             this.Visible = true;
         }
 
@@ -180,7 +219,32 @@ namespace MahjongScroeBoard
         {
             Application.Exit();
         }
-        
+
+        private void thridPartyCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("changed");
+            syncJudgement();
+        }
+
+        public void syncJudgement()
+        {
+            if (this.thridPartyCheck.Checked)
+            {
+                this.dongRadio.Enabled = false;
+                this.nanRadio.Enabled = false;
+                this.xiRadio.Enabled = false;
+                this.beiRadio.Enabled = false;
+                this.thirdPartyName.Enabled = true;
+            }
+            else
+            {
+                this.dongRadio.Enabled = true;
+                this.nanRadio.Enabled = true;
+                this.xiRadio.Enabled = true;
+                this.beiRadio.Enabled = true;
+                this.thirdPartyName.Enabled = false;
+            }
+        }
 
 
     }

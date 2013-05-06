@@ -17,6 +17,7 @@ namespace MahjongScroeBoard
         private Bitmap cachedImage;
         private TextBox[] scoreViews;
         private int[] scoresContents = { 0, 0, 0, 0 };
+        private ArrayList fanlist = new ArrayList();
         public SnapshotScoreBoard()
         {
             InitializeComponent();
@@ -99,23 +100,37 @@ namespace MahjongScroeBoard
 
                     Rectangle fanRect = new Rectangle(35 + 120 * i, 153 + 25 * j, 120, 25);
                     Bitmap temp = core.Clone(fanRect, PixelFormat.Format24bppRgb);
-                    temp.Save("test\\" + (targetRow + 1) + "fan_" + i + j + ".jpg");
+                    //temp.Save("test\\" + (targetRow + 1) + "fan_" + i + j + ".jpg");
                     Bitmap tempBW = ImageUtils.toBinaryImage(temp);
-                    tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bw.jpg");
+                    //tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bw.jpg");
 
                     filterSinglePoints(tempBW);
-                    tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bwf.jpg");
+                    //tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bwf.jpg");
 
                     ArrayList names = ImageUtils.spiltImage(tempBW);
                     for (int k = 0; k < names.Count; k++)
                     {
-                        ((Bitmap)names[k]).Save("test\\" + targetRow + i + j + k + ".bmp", ImageFormat.Bmp);
+                        //((Bitmap)names[k]).Save("test\\" + targetRow + i + j + k + ".bmp", ImageFormat.Bmp);
                     }
                     if (names.Count > 0)
                     {
-                        sb.Append(FanNameParser.getInstance().getFan(names));
-                        sb.Append('\t');
-
+                        String fanName = FanNameParser.getInstance().getFan(names);
+                        sb.Append(fanName);
+                        if (fanName.Length > 3)
+                        {
+                            sb.Append("\t\t");
+                        }
+                        else
+                        {
+                            sb.Append("\t\t\t");
+                        }
+                        fanlist.Add(fanName);
+                        Console.Write(fanlist.Count % 2);
+                        if(fanlist.Count % 3 == 0)
+                        {
+                            sb.Append("\r\n");
+                        }
+                        
                     }
 
                 }
@@ -128,6 +143,7 @@ namespace MahjongScroeBoard
         public void resetAndDisplay(int targetRow,Bitmap sourceImage)
         {
             this.retakeIndex = 0;
+            this.fanlist.Clear();
             this.parsingImage(targetRow, sourceImage);
             this.ShowDialog(ViewManager.scoreBoardUI);
 
@@ -247,6 +263,10 @@ namespace MahjongScroeBoard
         {
 
             this.snapshotInfo.Text = "";
+
+           
+
+
             try
             {
                 int number1 = Int32.Parse(this.dongScore.Text);
@@ -260,9 +280,27 @@ namespace MahjongScroeBoard
                 Boolean dataTrue = validateNumbers();
                 if (dataTrue)
                 {
-                    for(int i =0;i<4;i++){
+                    for (int i = 0; i < 4; i++)
+                    {
 
                         Game.getInstance().gameInfo[this.targetRow, i] = this.scoresContents[i];
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < this.fanlist.Count; i++)
+                    {
+                        sb.Append(fanlist[i]);
+                        sb.Append(',');
+
+                    }
+                    String fanContent = sb.ToString();
+                    Console.WriteLine(fanContent);
+                    if (fanContent.Length > 0)
+                    {
+                        Game.getInstance().fans[this.targetRow] = fanContent.Substring(0, fanContent.Length - 1);
+                    }
+                    else
+                    {
+                        Game.getInstance().fans[this.targetRow] = "识别失败";
                     }
                     if (Game.getInstance().currentRound < 16)
                     {

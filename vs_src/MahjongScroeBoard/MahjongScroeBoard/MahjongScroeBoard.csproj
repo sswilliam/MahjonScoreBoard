@@ -79,6 +79,7 @@
       <DependentUpon>SnapshotScoreBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="SnapshotTaker.cs" />
+    <Compile Include="TextUtils.cs" />
     <Compile Include="ViewManager.cs" />
     <EmbeddedResource Include="EntryUI.resx">
       <DependentUpon>EntryUI.cs</DependentUpon>
