@@ -15,7 +15,7 @@ namespace MahjongScroeBoard
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern int MoveWindow(IntPtr hWnd, int x, int y, int nWidth, int nHeight, bool BRePaint);
 
-        [DllImport("User32.dll", EntryPoint = "FindWindow")]
+        [DllImport("user32.dll", EntryPoint = "FindWindow")]
         private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
         [DllImport("gdi32.dll", EntryPoint = "CreateCompatibleDC")]
