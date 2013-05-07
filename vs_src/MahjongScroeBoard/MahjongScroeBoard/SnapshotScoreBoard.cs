@@ -100,17 +100,17 @@ namespace MahjongScroeBoard
 
                     Rectangle fanRect = new Rectangle(35 + 120 * i, 153 + 25 * j, 120, 25);
                     Bitmap temp = core.Clone(fanRect, PixelFormat.Format24bppRgb);
-                    //temp.Save("test\\" + (targetRow + 1) + "fan_" + i + j + ".jpg");
+                    temp.Save("test\\" + (targetRow + 1) + "fan_" + i + j + ".jpg");
                     Bitmap tempBW = ImageUtils.toBinaryImage(temp);
-                    //tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bw.jpg");
+                    tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bw.jpg");
 
                     filterSinglePoints(tempBW);
-                    //tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bwf.jpg");
+                    tempBW.Save("test\\" + (targetRow + 1) + "fan_" + i + j + "bwf.jpg");
 
                     ArrayList names = ImageUtils.spiltImage(tempBW);
                     for (int k = 0; k < names.Count; k++)
                     {
-                        //((Bitmap)names[k]).Save("test\\" + targetRow + i + j + k + ".bmp", ImageFormat.Bmp);
+                        ((Bitmap)names[k]).Save("test\\" + targetRow + i + j + k + ".bmp", ImageFormat.Bmp);
                     }
                     if (names.Count > 0)
                     {
