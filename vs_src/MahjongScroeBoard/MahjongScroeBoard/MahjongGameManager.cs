@@ -19,7 +19,7 @@ namespace MahjongScroeBoard
             Console.WriteLine(Environment.OSVersion.Version);
             Console.WriteLine(Environment.OSVersion.Platform);
             Console.WriteLine(Environment.OSVersion.Version.Build);
-            if (Environment.OSVersion.Version.Build < 7600)
+            if (Environment.OSVersion.Version.Build > 7600)
             {
                 usePrintWindow = true;
             }
@@ -30,7 +30,7 @@ namespace MahjongScroeBoard
         }
         public Boolean syncMJHandler()
         {
-            QQMJPtr = ProcessUtils.getHandlerByProcessName("taskmgr");
+            QQMJPtr = ProcessUtils.getHandlerByProcessName("mjrpg");
             if (QQMJPtr == IntPtr.Zero)
             {
                 return false;
@@ -94,7 +94,7 @@ namespace MahjongScroeBoard
                 Rectangle rect = new Rectangle();
                 Native.GetWindowRect(QQMJPtr, out rect);
                 Bitmap bt = GetWindow(QQMJPtr, rect.Width - rect.X, rect.Height - rect.Y);
-                bt.Save("test.jpg", ImageFormat.Jpeg);
+                //bt.Save("test.jpg", ImageFormat.Jpeg);
                 return bt;
             }
             catch (Exception e)
@@ -130,9 +130,9 @@ namespace MahjongScroeBoard
             actualArea.Y = bounds.Y;
             actualArea.Width = bounds.Width - bounds.X;
             actualArea.Height = bounds.Height - bounds.Y;
-            screenData.Save("csscreen" + cound + ".jpg", ImageFormat.Jpeg);
+            //screenData.Save("csscreen" + cound + ".jpg", ImageFormat.Jpeg);
             Bitmap appData = screenData.Clone(actualArea, PixelFormat.Format24bppRgb);
-            appData.Save("app"+cound+".jpg",ImageFormat.Jpeg);
+            //appData.Save("app"+cound+".jpg",ImageFormat.Jpeg);
             return appData;
         }
         int cound = 0;

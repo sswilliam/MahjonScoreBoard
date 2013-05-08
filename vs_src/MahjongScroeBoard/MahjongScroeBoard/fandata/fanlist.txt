@@ -87,6 +87,7 @@
 连六#lian_liu
 连六#lian2_liu
 老少副#lao_shao_fu
+老少副#lao2_shao_fu
 幺九刻#yao_jiu_ke
 明杠#ming_gang
 缺一门#que_yi_men1_men2
