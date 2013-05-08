@@ -60,7 +60,7 @@ namespace MahjongScroeBoard
 
                 uint processId = 0;
                 Native.GetWindowThreadProcessId(new IntPtr(hWnd), ref processId);
-                Console.WriteLine(pid + ": " + processId);
+                //Console.WriteLine(pid + ": " + processId);
                 if (processId == pid)
                 {
                     targetPtr = new IntPtr(hWnd);

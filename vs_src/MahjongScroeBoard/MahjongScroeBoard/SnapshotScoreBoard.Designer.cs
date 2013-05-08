@@ -40,11 +40,11 @@
             this.nanName = new System.Windows.Forms.TextBox();
             this.dongName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.fanbox = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.snapshotInfo = new System.Windows.Forms.Label();
             this.retakeBtn = new System.Windows.Forms.Button();
-            this.fanbox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.snapshotContent)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -116,33 +116,37 @@
             // 
             // beiName
             // 
-            this.beiName.Enabled = false;
+            this.beiName.BackColor = System.Drawing.Color.White;
             this.beiName.Location = new System.Drawing.Point(304, 20);
             this.beiName.Name = "beiName";
+            this.beiName.ReadOnly = true;
             this.beiName.Size = new System.Drawing.Size(84, 20);
             this.beiName.TabIndex = 3;
             // 
             // xiName
             // 
-            this.xiName.Enabled = false;
+            this.xiName.BackColor = System.Drawing.Color.White;
             this.xiName.Location = new System.Drawing.Point(213, 20);
             this.xiName.Name = "xiName";
+            this.xiName.ReadOnly = true;
             this.xiName.Size = new System.Drawing.Size(84, 20);
             this.xiName.TabIndex = 2;
             // 
             // nanName
             // 
-            this.nanName.Enabled = false;
+            this.nanName.BackColor = System.Drawing.Color.White;
             this.nanName.Location = new System.Drawing.Point(122, 20);
             this.nanName.Name = "nanName";
+            this.nanName.ReadOnly = true;
             this.nanName.Size = new System.Drawing.Size(84, 20);
             this.nanName.TabIndex = 1;
             // 
             // dongName
             // 
-            this.dongName.Enabled = false;
+            this.dongName.BackColor = System.Drawing.Color.White;
             this.dongName.Location = new System.Drawing.Point(31, 20);
             this.dongName.Name = "dongName";
+            this.dongName.ReadOnly = true;
             this.dongName.Size = new System.Drawing.Size(84, 20);
             this.dongName.TabIndex = 0;
             // 
@@ -155,6 +159,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "番种";
+            // 
+            // fanbox
+            // 
+            this.fanbox.BackColor = System.Drawing.Color.White;
+            this.fanbox.Location = new System.Drawing.Point(7, 20);
+            this.fanbox.Multiline = true;
+            this.fanbox.Name = "fanbox";
+            this.fanbox.ReadOnly = true;
+            this.fanbox.Size = new System.Drawing.Size(409, 74);
+            this.fanbox.TabIndex = 0;
             // 
             // saveBtn
             // 
@@ -194,14 +208,6 @@
             this.retakeBtn.Text = "重拍";
             this.retakeBtn.UseVisualStyleBackColor = true;
             this.retakeBtn.Click += new System.EventHandler(this.retakeBtn_Click);
-            // 
-            // fanbox
-            // 
-            this.fanbox.Location = new System.Drawing.Point(7, 20);
-            this.fanbox.Multiline = true;
-            this.fanbox.Name = "fanbox";
-            this.fanbox.Size = new System.Drawing.Size(409, 74);
-            this.fanbox.TabIndex = 0;
             // 
             // SnapshotScoreBoard
             // 

@@ -454,18 +454,20 @@ namespace MahjongScroeBoard
         private ArrayList snapshots = new ArrayList();
         private void retakeBtn_Click(object sender, EventArgs e)
         {
-            if (snapshots.Count == 0)
-            {
-                addSnapshot(new DirectoryInfo("testdata"));
-                Console.WriteLine(snapshots.Count);
-            }
-            if(retakeIndex < snapshots.Count){
-                this.snapshotInfo.Text = retakeIndex+"/"+snapshots.Count;
-                Bitmap data = new Bitmap((String)snapshots[this.retakeIndex]);
-                this.parsingImage(this.targetRow, data);
-                this.snapshotInfo.Text = retakeIndex + "/" + snapshots.Count + " : " + this.snapshots[retakeIndex].ToString().Substring(40);
-                retakeIndex++;
-            }
+            //if (snapshots.Count == 0)
+           // {
+            //    addSnapshot(new DirectoryInfo("testdata"));
+           //     Console.WriteLine(snapshots.Count);
+           // }
+           // if(retakeIndex < snapshots.Count){
+            //    this.snapshotInfo.Text = retakeIndex+"/"+snapshots.Count;
+           //     Bitmap data = new Bitmap((String)snapshots[this.retakeIndex]);
+            //    this.parsingImage(this.targetRow, data);
+            //    this.snapshotInfo.Text = retakeIndex + "/" + snapshots.Count + " : " + this.snapshots[retakeIndex].ToString().Substring(40);
+            //    retakeIndex++;
+           // }
+            Bitmap retakeData = MahjongGameManager.getInstance().takeSnapshot();
+            this.parsingImage(this.targetRow, retakeData);
         }
 
         private void addSnapshot(DirectoryInfo root){

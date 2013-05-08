@@ -256,8 +256,8 @@ namespace MahjongScroeBoard
                 String number = target.Name.Substring(8);
                 int index = Int32.Parse(number);
                 Console.WriteLine("curent " + (index - 1));
-                //Bitmap sourceImage = SnapshotTaker.takeImage();
-                Bitmap sourceImage = new Bitmap("t" + (index - 1) + ".jpg");
+                Bitmap sourceImage = MahjongGameManager.getInstance().takeSnapshot();
+               // Bitmap sourceImage = new Bitmap("t" + (index - 1) + ".jpg");
                 if (sourceImage == null)
                 {
                     MessageBox.Show("检测QQ麻将游戏失败，请确定已开启游戏或联系开发者");

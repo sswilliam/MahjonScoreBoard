@@ -31,6 +31,10 @@
             this.dongLabel = new System.Windows.Forms.Label();
             this.dongName = new System.Windows.Forms.TextBox();
             this.dongGroup = new System.Windows.Forms.GroupBox();
+            this.zeroBtn4 = new System.Windows.Forms.Button();
+            this.zeroBtn3 = new System.Windows.Forms.Button();
+            this.zeroBtn2 = new System.Windows.Forms.Button();
+            this.zeroBtn1 = new System.Windows.Forms.Button();
             this.manual4 = new System.Windows.Forms.Button();
             this.snapshot4 = new System.Windows.Forms.Button();
             this.manual3 = new System.Windows.Forms.Button();
@@ -62,9 +66,13 @@
             this.beiName = new System.Windows.Forms.TextBox();
             this.beiLabel = new System.Windows.Forms.Label();
             this.nanGourp = new System.Windows.Forms.GroupBox();
+            this.zeroBtn8 = new System.Windows.Forms.Button();
             this.manual8 = new System.Windows.Forms.Button();
+            this.zeroBtn7 = new System.Windows.Forms.Button();
             this.snapshot8 = new System.Windows.Forms.Button();
+            this.zeroBtn6 = new System.Windows.Forms.Button();
             this.manual7 = new System.Windows.Forms.Button();
+            this.zeroBtn5 = new System.Windows.Forms.Button();
             this.snapshot7 = new System.Windows.Forms.Button();
             this.manual6 = new System.Windows.Forms.Button();
             this.snapshot6 = new System.Windows.Forms.Button();
@@ -87,9 +95,13 @@
             this.dong6 = new System.Windows.Forms.TextBox();
             this.dong5 = new System.Windows.Forms.TextBox();
             this.xiGroup = new System.Windows.Forms.GroupBox();
+            this.zeroBtn12 = new System.Windows.Forms.Button();
             this.manual12 = new System.Windows.Forms.Button();
+            this.zeroBtn11 = new System.Windows.Forms.Button();
             this.snapshot12 = new System.Windows.Forms.Button();
+            this.zeroBtn10 = new System.Windows.Forms.Button();
             this.manual11 = new System.Windows.Forms.Button();
+            this.zeroBtn9 = new System.Windows.Forms.Button();
             this.snapshot11 = new System.Windows.Forms.Button();
             this.manual10 = new System.Windows.Forms.Button();
             this.snapshot10 = new System.Windows.Forms.Button();
@@ -112,9 +124,13 @@
             this.dong10 = new System.Windows.Forms.TextBox();
             this.dong9 = new System.Windows.Forms.TextBox();
             this.beiGroup = new System.Windows.Forms.GroupBox();
+            this.zeroBtn16 = new System.Windows.Forms.Button();
             this.manual16 = new System.Windows.Forms.Button();
+            this.zeroBtn15 = new System.Windows.Forms.Button();
             this.snapshot16 = new System.Windows.Forms.Button();
+            this.zeroBtn14 = new System.Windows.Forms.Button();
             this.manual15 = new System.Windows.Forms.Button();
+            this.zeroBtn13 = new System.Windows.Forms.Button();
             this.snapshot15 = new System.Windows.Forms.Button();
             this.manual14 = new System.Windows.Forms.Button();
             this.snapshot14 = new System.Windows.Forms.Button();
@@ -144,22 +160,6 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.historyBtn = new System.Windows.Forms.Button();
-            this.zeroBtn1 = new System.Windows.Forms.Button();
-            this.zeroBtn2 = new System.Windows.Forms.Button();
-            this.zeroBtn3 = new System.Windows.Forms.Button();
-            this.zeroBtn4 = new System.Windows.Forms.Button();
-            this.zeroBtn8 = new System.Windows.Forms.Button();
-            this.zeroBtn7 = new System.Windows.Forms.Button();
-            this.zeroBtn6 = new System.Windows.Forms.Button();
-            this.zeroBtn5 = new System.Windows.Forms.Button();
-            this.zeroBtn12 = new System.Windows.Forms.Button();
-            this.zeroBtn11 = new System.Windows.Forms.Button();
-            this.zeroBtn10 = new System.Windows.Forms.Button();
-            this.zeroBtn9 = new System.Windows.Forms.Button();
-            this.zeroBtn16 = new System.Windows.Forms.Button();
-            this.zeroBtn15 = new System.Windows.Forms.Button();
-            this.zeroBtn14 = new System.Windows.Forms.Button();
-            this.zeroBtn13 = new System.Windows.Forms.Button();
             this.dongGroup.SuspendLayout();
             this.nanGourp.SuspendLayout();
             this.xiGroup.SuspendLayout();
@@ -177,9 +177,10 @@
             // 
             // dongName
             // 
-            this.dongName.Enabled = false;
+            this.dongName.BackColor = System.Drawing.Color.White;
             this.dongName.Location = new System.Drawing.Point(61, 25);
             this.dongName.Name = "dongName";
+            this.dongName.ReadOnly = true;
             this.dongName.Size = new System.Drawing.Size(62, 20);
             this.dongName.TabIndex = 1;
             // 
@@ -219,6 +220,42 @@
             this.dongGroup.TabIndex = 2;
             this.dongGroup.TabStop = false;
             this.dongGroup.Text = "东风圈";
+            // 
+            // zeroBtn4
+            // 
+            this.zeroBtn4.Location = new System.Drawing.Point(446, 94);
+            this.zeroBtn4.Name = "zeroBtn4";
+            this.zeroBtn4.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn4.TabIndex = 30;
+            this.zeroBtn4.Text = "荒庄";
+            this.zeroBtn4.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn3
+            // 
+            this.zeroBtn3.Location = new System.Drawing.Point(446, 69);
+            this.zeroBtn3.Name = "zeroBtn3";
+            this.zeroBtn3.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn3.TabIndex = 29;
+            this.zeroBtn3.Text = "荒庄";
+            this.zeroBtn3.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn2
+            // 
+            this.zeroBtn2.Location = new System.Drawing.Point(446, 43);
+            this.zeroBtn2.Name = "zeroBtn2";
+            this.zeroBtn2.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn2.TabIndex = 28;
+            this.zeroBtn2.Text = "荒庄";
+            this.zeroBtn2.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn1
+            // 
+            this.zeroBtn1.Location = new System.Drawing.Point(446, 18);
+            this.zeroBtn1.Name = "zeroBtn1";
+            this.zeroBtn1.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn1.TabIndex = 27;
+            this.zeroBtn1.Text = "荒庄";
+            this.zeroBtn1.UseVisualStyleBackColor = true;
             // 
             // manual4
             // 
@@ -294,137 +331,154 @@
             // 
             // bei4
             // 
-            this.bei4.Enabled = false;
+            this.bei4.BackColor = System.Drawing.Color.White;
             this.bei4.Location = new System.Drawing.Point(261, 98);
             this.bei4.Name = "bei4";
+            this.bei4.ReadOnly = true;
             this.bei4.Size = new System.Drawing.Size(62, 20);
             this.bei4.TabIndex = 18;
             // 
             // bei3
             // 
-            this.bei3.Enabled = false;
+            this.bei3.BackColor = System.Drawing.Color.White;
             this.bei3.Location = new System.Drawing.Point(261, 72);
             this.bei3.Name = "bei3";
+            this.bei3.ReadOnly = true;
             this.bei3.Size = new System.Drawing.Size(62, 20);
             this.bei3.TabIndex = 17;
             // 
             // bei2
             // 
-            this.bei2.Enabled = false;
+            this.bei2.BackColor = System.Drawing.Color.White;
             this.bei2.Location = new System.Drawing.Point(261, 46);
             this.bei2.Name = "bei2";
+            this.bei2.ReadOnly = true;
             this.bei2.Size = new System.Drawing.Size(62, 20);
             this.bei2.TabIndex = 16;
             // 
             // bei1
             // 
-            this.bei1.Enabled = false;
+            this.bei1.BackColor = System.Drawing.Color.White;
             this.bei1.Location = new System.Drawing.Point(261, 20);
             this.bei1.Name = "bei1";
+            this.bei1.ReadOnly = true;
             this.bei1.Size = new System.Drawing.Size(62, 20);
             this.bei1.TabIndex = 15;
             // 
             // xi4
             // 
-            this.xi4.Enabled = false;
+            this.xi4.BackColor = System.Drawing.Color.White;
             this.xi4.Location = new System.Drawing.Point(193, 98);
             this.xi4.Name = "xi4";
+            this.xi4.ReadOnly = true;
             this.xi4.Size = new System.Drawing.Size(62, 20);
             this.xi4.TabIndex = 14;
             // 
             // xi3
             // 
-            this.xi3.Enabled = false;
+            this.xi3.BackColor = System.Drawing.Color.White;
             this.xi3.Location = new System.Drawing.Point(193, 72);
             this.xi3.Name = "xi3";
+            this.xi3.ReadOnly = true;
             this.xi3.Size = new System.Drawing.Size(62, 20);
             this.xi3.TabIndex = 13;
             // 
             // xi2
             // 
-            this.xi2.Enabled = false;
+            this.xi2.BackColor = System.Drawing.Color.White;
             this.xi2.Location = new System.Drawing.Point(193, 46);
             this.xi2.Name = "xi2";
+            this.xi2.ReadOnly = true;
             this.xi2.Size = new System.Drawing.Size(62, 20);
             this.xi2.TabIndex = 12;
             // 
             // xi1
             // 
-            this.xi1.Enabled = false;
+            this.xi1.BackColor = System.Drawing.Color.White;
             this.xi1.Location = new System.Drawing.Point(193, 20);
             this.xi1.Name = "xi1";
+            this.xi1.ReadOnly = true;
             this.xi1.Size = new System.Drawing.Size(62, 20);
             this.xi1.TabIndex = 11;
             // 
             // nan4
             // 
-            this.nan4.Enabled = false;
+            this.nan4.BackColor = System.Drawing.Color.White;
             this.nan4.Location = new System.Drawing.Point(125, 98);
             this.nan4.Name = "nan4";
+            this.nan4.ReadOnly = true;
             this.nan4.Size = new System.Drawing.Size(62, 20);
             this.nan4.TabIndex = 10;
             // 
             // nan3
             // 
-            this.nan3.Enabled = false;
+            this.nan3.BackColor = System.Drawing.Color.White;
             this.nan3.Location = new System.Drawing.Point(125, 72);
             this.nan3.Name = "nan3";
+            this.nan3.ReadOnly = true;
             this.nan3.Size = new System.Drawing.Size(62, 20);
             this.nan3.TabIndex = 9;
             // 
             // nan2
             // 
-            this.nan2.Enabled = false;
+            this.nan2.BackColor = System.Drawing.Color.White;
             this.nan2.Location = new System.Drawing.Point(125, 46);
             this.nan2.Name = "nan2";
+            this.nan2.ReadOnly = true;
             this.nan2.Size = new System.Drawing.Size(62, 20);
             this.nan2.TabIndex = 8;
             // 
             // nan1
             // 
-            this.nan1.Enabled = false;
+            this.nan1.BackColor = System.Drawing.Color.White;
             this.nan1.Location = new System.Drawing.Point(125, 20);
             this.nan1.Name = "nan1";
+            this.nan1.ReadOnly = true;
             this.nan1.Size = new System.Drawing.Size(62, 20);
             this.nan1.TabIndex = 7;
             // 
             // dong4
             // 
-            this.dong4.Enabled = false;
+            this.dong4.BackColor = System.Drawing.Color.White;
             this.dong4.Location = new System.Drawing.Point(57, 98);
             this.dong4.Name = "dong4";
+            this.dong4.ReadOnly = true;
             this.dong4.Size = new System.Drawing.Size(62, 20);
             this.dong4.TabIndex = 6;
             // 
             // dong3
             // 
-            this.dong3.Enabled = false;
+            this.dong3.BackColor = System.Drawing.Color.White;
             this.dong3.Location = new System.Drawing.Point(57, 72);
             this.dong3.Name = "dong3";
+            this.dong3.ReadOnly = true;
             this.dong3.Size = new System.Drawing.Size(62, 20);
             this.dong3.TabIndex = 5;
             // 
             // dong2
             // 
-            this.dong2.Enabled = false;
+            this.dong2.BackColor = System.Drawing.Color.White;
             this.dong2.Location = new System.Drawing.Point(57, 46);
             this.dong2.Name = "dong2";
+            this.dong2.ReadOnly = true;
             this.dong2.Size = new System.Drawing.Size(62, 20);
             this.dong2.TabIndex = 4;
             // 
             // dong1
             // 
-            this.dong1.Enabled = false;
+            this.dong1.BackColor = System.Drawing.Color.White;
             this.dong1.Location = new System.Drawing.Point(57, 20);
             this.dong1.Name = "dong1";
+            this.dong1.ReadOnly = true;
             this.dong1.Size = new System.Drawing.Size(62, 20);
             this.dong1.TabIndex = 3;
             // 
             // nanName
             // 
-            this.nanName.Enabled = false;
+            this.nanName.BackColor = System.Drawing.Color.White;
             this.nanName.Location = new System.Drawing.Point(129, 25);
             this.nanName.Name = "nanName";
+            this.nanName.ReadOnly = true;
             this.nanName.Size = new System.Drawing.Size(62, 20);
             this.nanName.TabIndex = 4;
             // 
@@ -439,9 +493,10 @@
             // 
             // xiName
             // 
-            this.xiName.Enabled = false;
+            this.xiName.BackColor = System.Drawing.Color.White;
             this.xiName.Location = new System.Drawing.Point(197, 25);
             this.xiName.Name = "xiName";
+            this.xiName.ReadOnly = true;
             this.xiName.Size = new System.Drawing.Size(62, 20);
             this.xiName.TabIndex = 6;
             // 
@@ -456,9 +511,10 @@
             // 
             // beiName
             // 
-            this.beiName.Enabled = false;
+            this.beiName.BackColor = System.Drawing.Color.White;
             this.beiName.Location = new System.Drawing.Point(265, 25);
             this.beiName.Name = "beiName";
+            this.beiName.ReadOnly = true;
             this.beiName.Size = new System.Drawing.Size(62, 20);
             this.beiName.TabIndex = 8;
             // 
@@ -508,6 +564,15 @@
             this.nanGourp.TabStop = false;
             this.nanGourp.Text = "南风圈";
             // 
+            // zeroBtn8
+            // 
+            this.zeroBtn8.Location = new System.Drawing.Point(446, 94);
+            this.zeroBtn8.Name = "zeroBtn8";
+            this.zeroBtn8.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn8.TabIndex = 34;
+            this.zeroBtn8.Text = "荒庄";
+            this.zeroBtn8.UseVisualStyleBackColor = true;
+            // 
             // manual8
             // 
             this.manual8.Location = new System.Drawing.Point(388, 94);
@@ -516,6 +581,15 @@
             this.manual8.TabIndex = 26;
             this.manual8.Text = "手动";
             this.manual8.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn7
+            // 
+            this.zeroBtn7.Location = new System.Drawing.Point(446, 69);
+            this.zeroBtn7.Name = "zeroBtn7";
+            this.zeroBtn7.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn7.TabIndex = 33;
+            this.zeroBtn7.Text = "荒庄";
+            this.zeroBtn7.UseVisualStyleBackColor = true;
             // 
             // snapshot8
             // 
@@ -526,6 +600,15 @@
             this.snapshot8.Text = "拍照";
             this.snapshot8.UseVisualStyleBackColor = true;
             // 
+            // zeroBtn6
+            // 
+            this.zeroBtn6.Location = new System.Drawing.Point(446, 43);
+            this.zeroBtn6.Name = "zeroBtn6";
+            this.zeroBtn6.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn6.TabIndex = 32;
+            this.zeroBtn6.Text = "荒庄";
+            this.zeroBtn6.UseVisualStyleBackColor = true;
+            // 
             // manual7
             // 
             this.manual7.Location = new System.Drawing.Point(388, 69);
@@ -534,6 +617,15 @@
             this.manual7.TabIndex = 24;
             this.manual7.Text = "手动";
             this.manual7.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn5
+            // 
+            this.zeroBtn5.Location = new System.Drawing.Point(446, 18);
+            this.zeroBtn5.Name = "zeroBtn5";
+            this.zeroBtn5.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn5.TabIndex = 31;
+            this.zeroBtn5.Text = "荒庄";
+            this.zeroBtn5.UseVisualStyleBackColor = true;
             // 
             // snapshot7
             // 
@@ -582,129 +674,145 @@
             // 
             // bei8
             // 
-            this.bei8.Enabled = false;
+            this.bei8.BackColor = System.Drawing.Color.White;
             this.bei8.Location = new System.Drawing.Point(261, 98);
             this.bei8.Name = "bei8";
+            this.bei8.ReadOnly = true;
             this.bei8.Size = new System.Drawing.Size(62, 20);
             this.bei8.TabIndex = 18;
             // 
             // bei7
             // 
-            this.bei7.Enabled = false;
+            this.bei7.BackColor = System.Drawing.Color.White;
             this.bei7.Location = new System.Drawing.Point(261, 72);
             this.bei7.Name = "bei7";
+            this.bei7.ReadOnly = true;
             this.bei7.Size = new System.Drawing.Size(62, 20);
             this.bei7.TabIndex = 17;
             // 
             // bei6
             // 
-            this.bei6.Enabled = false;
+            this.bei6.BackColor = System.Drawing.Color.White;
             this.bei6.Location = new System.Drawing.Point(261, 46);
             this.bei6.Name = "bei6";
+            this.bei6.ReadOnly = true;
             this.bei6.Size = new System.Drawing.Size(62, 20);
             this.bei6.TabIndex = 16;
             // 
             // bei5
             // 
-            this.bei5.Enabled = false;
+            this.bei5.BackColor = System.Drawing.Color.White;
             this.bei5.Location = new System.Drawing.Point(261, 20);
             this.bei5.Name = "bei5";
+            this.bei5.ReadOnly = true;
             this.bei5.Size = new System.Drawing.Size(62, 20);
             this.bei5.TabIndex = 15;
             // 
             // xi8
             // 
-            this.xi8.Enabled = false;
+            this.xi8.BackColor = System.Drawing.Color.White;
             this.xi8.Location = new System.Drawing.Point(193, 98);
             this.xi8.Name = "xi8";
+            this.xi8.ReadOnly = true;
             this.xi8.Size = new System.Drawing.Size(62, 20);
             this.xi8.TabIndex = 14;
             // 
             // xi7
             // 
-            this.xi7.Enabled = false;
+            this.xi7.BackColor = System.Drawing.Color.White;
             this.xi7.Location = new System.Drawing.Point(193, 72);
             this.xi7.Name = "xi7";
+            this.xi7.ReadOnly = true;
             this.xi7.Size = new System.Drawing.Size(62, 20);
             this.xi7.TabIndex = 13;
             // 
             // xi6
             // 
-            this.xi6.Enabled = false;
+            this.xi6.BackColor = System.Drawing.Color.White;
             this.xi6.Location = new System.Drawing.Point(193, 46);
             this.xi6.Name = "xi6";
+            this.xi6.ReadOnly = true;
             this.xi6.Size = new System.Drawing.Size(62, 20);
             this.xi6.TabIndex = 12;
             // 
             // xi5
             // 
-            this.xi5.Enabled = false;
+            this.xi5.BackColor = System.Drawing.Color.White;
             this.xi5.Location = new System.Drawing.Point(193, 20);
             this.xi5.Name = "xi5";
+            this.xi5.ReadOnly = true;
             this.xi5.Size = new System.Drawing.Size(62, 20);
             this.xi5.TabIndex = 11;
             // 
             // nan8
             // 
-            this.nan8.Enabled = false;
+            this.nan8.BackColor = System.Drawing.Color.White;
             this.nan8.Location = new System.Drawing.Point(125, 98);
             this.nan8.Name = "nan8";
+            this.nan8.ReadOnly = true;
             this.nan8.Size = new System.Drawing.Size(62, 20);
             this.nan8.TabIndex = 10;
             // 
             // nan7
             // 
-            this.nan7.Enabled = false;
+            this.nan7.BackColor = System.Drawing.Color.White;
             this.nan7.Location = new System.Drawing.Point(125, 72);
             this.nan7.Name = "nan7";
+            this.nan7.ReadOnly = true;
             this.nan7.Size = new System.Drawing.Size(62, 20);
             this.nan7.TabIndex = 9;
             // 
             // nan6
             // 
-            this.nan6.Enabled = false;
+            this.nan6.BackColor = System.Drawing.Color.White;
             this.nan6.Location = new System.Drawing.Point(125, 46);
             this.nan6.Name = "nan6";
+            this.nan6.ReadOnly = true;
             this.nan6.Size = new System.Drawing.Size(62, 20);
             this.nan6.TabIndex = 8;
             // 
             // nan5
             // 
-            this.nan5.Enabled = false;
+            this.nan5.BackColor = System.Drawing.Color.White;
             this.nan5.Location = new System.Drawing.Point(125, 20);
             this.nan5.Name = "nan5";
+            this.nan5.ReadOnly = true;
             this.nan5.Size = new System.Drawing.Size(62, 20);
             this.nan5.TabIndex = 7;
             // 
             // dong8
             // 
-            this.dong8.Enabled = false;
+            this.dong8.BackColor = System.Drawing.Color.White;
             this.dong8.Location = new System.Drawing.Point(57, 98);
             this.dong8.Name = "dong8";
+            this.dong8.ReadOnly = true;
             this.dong8.Size = new System.Drawing.Size(62, 20);
             this.dong8.TabIndex = 6;
             // 
             // dong7
             // 
-            this.dong7.Enabled = false;
+            this.dong7.BackColor = System.Drawing.Color.White;
             this.dong7.Location = new System.Drawing.Point(57, 72);
             this.dong7.Name = "dong7";
+            this.dong7.ReadOnly = true;
             this.dong7.Size = new System.Drawing.Size(62, 20);
             this.dong7.TabIndex = 5;
             // 
             // dong6
             // 
-            this.dong6.Enabled = false;
+            this.dong6.BackColor = System.Drawing.Color.White;
             this.dong6.Location = new System.Drawing.Point(57, 46);
             this.dong6.Name = "dong6";
+            this.dong6.ReadOnly = true;
             this.dong6.Size = new System.Drawing.Size(62, 20);
             this.dong6.TabIndex = 4;
             // 
             // dong5
             // 
-            this.dong5.Enabled = false;
+            this.dong5.BackColor = System.Drawing.Color.White;
             this.dong5.Location = new System.Drawing.Point(57, 20);
             this.dong5.Name = "dong5";
+            this.dong5.ReadOnly = true;
             this.dong5.Size = new System.Drawing.Size(62, 20);
             this.dong5.TabIndex = 3;
             // 
@@ -745,6 +853,15 @@
             this.xiGroup.TabStop = false;
             this.xiGroup.Text = "西风圈";
             // 
+            // zeroBtn12
+            // 
+            this.zeroBtn12.Location = new System.Drawing.Point(446, 94);
+            this.zeroBtn12.Name = "zeroBtn12";
+            this.zeroBtn12.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn12.TabIndex = 38;
+            this.zeroBtn12.Text = "荒庄";
+            this.zeroBtn12.UseVisualStyleBackColor = true;
+            // 
             // manual12
             // 
             this.manual12.Location = new System.Drawing.Point(388, 94);
@@ -753,6 +870,15 @@
             this.manual12.TabIndex = 26;
             this.manual12.Text = "手动";
             this.manual12.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn11
+            // 
+            this.zeroBtn11.Location = new System.Drawing.Point(446, 69);
+            this.zeroBtn11.Name = "zeroBtn11";
+            this.zeroBtn11.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn11.TabIndex = 37;
+            this.zeroBtn11.Text = "荒庄";
+            this.zeroBtn11.UseVisualStyleBackColor = true;
             // 
             // snapshot12
             // 
@@ -763,6 +889,15 @@
             this.snapshot12.Text = "拍照";
             this.snapshot12.UseVisualStyleBackColor = true;
             // 
+            // zeroBtn10
+            // 
+            this.zeroBtn10.Location = new System.Drawing.Point(446, 43);
+            this.zeroBtn10.Name = "zeroBtn10";
+            this.zeroBtn10.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn10.TabIndex = 36;
+            this.zeroBtn10.Text = "荒庄";
+            this.zeroBtn10.UseVisualStyleBackColor = true;
+            // 
             // manual11
             // 
             this.manual11.Location = new System.Drawing.Point(388, 69);
@@ -771,6 +906,15 @@
             this.manual11.TabIndex = 24;
             this.manual11.Text = "手动";
             this.manual11.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn9
+            // 
+            this.zeroBtn9.Location = new System.Drawing.Point(446, 18);
+            this.zeroBtn9.Name = "zeroBtn9";
+            this.zeroBtn9.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn9.TabIndex = 35;
+            this.zeroBtn9.Text = "荒庄";
+            this.zeroBtn9.UseVisualStyleBackColor = true;
             // 
             // snapshot11
             // 
@@ -819,129 +963,145 @@
             // 
             // bei12
             // 
-            this.bei12.Enabled = false;
+            this.bei12.BackColor = System.Drawing.Color.White;
             this.bei12.Location = new System.Drawing.Point(261, 98);
             this.bei12.Name = "bei12";
+            this.bei12.ReadOnly = true;
             this.bei12.Size = new System.Drawing.Size(62, 20);
             this.bei12.TabIndex = 18;
             // 
             // bei11
             // 
-            this.bei11.Enabled = false;
+            this.bei11.BackColor = System.Drawing.Color.White;
             this.bei11.Location = new System.Drawing.Point(261, 72);
             this.bei11.Name = "bei11";
+            this.bei11.ReadOnly = true;
             this.bei11.Size = new System.Drawing.Size(62, 20);
             this.bei11.TabIndex = 17;
             // 
             // bei10
             // 
-            this.bei10.Enabled = false;
+            this.bei10.BackColor = System.Drawing.Color.White;
             this.bei10.Location = new System.Drawing.Point(261, 46);
             this.bei10.Name = "bei10";
+            this.bei10.ReadOnly = true;
             this.bei10.Size = new System.Drawing.Size(62, 20);
             this.bei10.TabIndex = 16;
             // 
             // bei9
             // 
-            this.bei9.Enabled = false;
+            this.bei9.BackColor = System.Drawing.Color.White;
             this.bei9.Location = new System.Drawing.Point(261, 20);
             this.bei9.Name = "bei9";
+            this.bei9.ReadOnly = true;
             this.bei9.Size = new System.Drawing.Size(62, 20);
             this.bei9.TabIndex = 15;
             // 
             // xi12
             // 
-            this.xi12.Enabled = false;
+            this.xi12.BackColor = System.Drawing.Color.White;
             this.xi12.Location = new System.Drawing.Point(193, 98);
             this.xi12.Name = "xi12";
+            this.xi12.ReadOnly = true;
             this.xi12.Size = new System.Drawing.Size(62, 20);
             this.xi12.TabIndex = 14;
             // 
             // xi11
             // 
-            this.xi11.Enabled = false;
+            this.xi11.BackColor = System.Drawing.Color.White;
             this.xi11.Location = new System.Drawing.Point(193, 72);
             this.xi11.Name = "xi11";
+            this.xi11.ReadOnly = true;
             this.xi11.Size = new System.Drawing.Size(62, 20);
             this.xi11.TabIndex = 13;
             // 
             // xi10
             // 
-            this.xi10.Enabled = false;
+            this.xi10.BackColor = System.Drawing.Color.White;
             this.xi10.Location = new System.Drawing.Point(193, 46);
             this.xi10.Name = "xi10";
+            this.xi10.ReadOnly = true;
             this.xi10.Size = new System.Drawing.Size(62, 20);
             this.xi10.TabIndex = 12;
             // 
             // xi9
             // 
-            this.xi9.Enabled = false;
+            this.xi9.BackColor = System.Drawing.Color.White;
             this.xi9.Location = new System.Drawing.Point(193, 20);
             this.xi9.Name = "xi9";
+            this.xi9.ReadOnly = true;
             this.xi9.Size = new System.Drawing.Size(62, 20);
             this.xi9.TabIndex = 11;
             // 
             // nan12
             // 
-            this.nan12.Enabled = false;
+            this.nan12.BackColor = System.Drawing.Color.White;
             this.nan12.Location = new System.Drawing.Point(125, 98);
             this.nan12.Name = "nan12";
+            this.nan12.ReadOnly = true;
             this.nan12.Size = new System.Drawing.Size(62, 20);
             this.nan12.TabIndex = 10;
             // 
             // nan11
             // 
-            this.nan11.Enabled = false;
+            this.nan11.BackColor = System.Drawing.Color.White;
             this.nan11.Location = new System.Drawing.Point(125, 72);
             this.nan11.Name = "nan11";
+            this.nan11.ReadOnly = true;
             this.nan11.Size = new System.Drawing.Size(62, 20);
             this.nan11.TabIndex = 9;
             // 
             // nan10
             // 
-            this.nan10.Enabled = false;
+            this.nan10.BackColor = System.Drawing.Color.White;
             this.nan10.Location = new System.Drawing.Point(125, 46);
             this.nan10.Name = "nan10";
+            this.nan10.ReadOnly = true;
             this.nan10.Size = new System.Drawing.Size(62, 20);
             this.nan10.TabIndex = 8;
             // 
             // nan9
             // 
-            this.nan9.Enabled = false;
+            this.nan9.BackColor = System.Drawing.Color.White;
             this.nan9.Location = new System.Drawing.Point(125, 20);
             this.nan9.Name = "nan9";
+            this.nan9.ReadOnly = true;
             this.nan9.Size = new System.Drawing.Size(62, 20);
             this.nan9.TabIndex = 7;
             // 
             // dong12
             // 
-            this.dong12.Enabled = false;
+            this.dong12.BackColor = System.Drawing.Color.White;
             this.dong12.Location = new System.Drawing.Point(57, 98);
             this.dong12.Name = "dong12";
+            this.dong12.ReadOnly = true;
             this.dong12.Size = new System.Drawing.Size(62, 20);
             this.dong12.TabIndex = 6;
             // 
             // dong11
             // 
-            this.dong11.Enabled = false;
+            this.dong11.BackColor = System.Drawing.Color.White;
             this.dong11.Location = new System.Drawing.Point(57, 72);
             this.dong11.Name = "dong11";
+            this.dong11.ReadOnly = true;
             this.dong11.Size = new System.Drawing.Size(62, 20);
             this.dong11.TabIndex = 5;
             // 
             // dong10
             // 
-            this.dong10.Enabled = false;
+            this.dong10.BackColor = System.Drawing.Color.White;
             this.dong10.Location = new System.Drawing.Point(57, 46);
             this.dong10.Name = "dong10";
+            this.dong10.ReadOnly = true;
             this.dong10.Size = new System.Drawing.Size(62, 20);
             this.dong10.TabIndex = 4;
             // 
             // dong9
             // 
-            this.dong9.Enabled = false;
+            this.dong9.BackColor = System.Drawing.Color.White;
             this.dong9.Location = new System.Drawing.Point(57, 20);
             this.dong9.Name = "dong9";
+            this.dong9.ReadOnly = true;
             this.dong9.Size = new System.Drawing.Size(62, 20);
             this.dong9.TabIndex = 3;
             // 
@@ -982,6 +1142,15 @@
             this.beiGroup.TabStop = false;
             this.beiGroup.Text = "北风圈";
             // 
+            // zeroBtn16
+            // 
+            this.zeroBtn16.Location = new System.Drawing.Point(445, 94);
+            this.zeroBtn16.Name = "zeroBtn16";
+            this.zeroBtn16.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn16.TabIndex = 42;
+            this.zeroBtn16.Text = "荒庄";
+            this.zeroBtn16.UseVisualStyleBackColor = true;
+            // 
             // manual16
             // 
             this.manual16.Location = new System.Drawing.Point(388, 94);
@@ -990,6 +1159,15 @@
             this.manual16.TabIndex = 26;
             this.manual16.Text = "手动";
             this.manual16.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn15
+            // 
+            this.zeroBtn15.Location = new System.Drawing.Point(445, 69);
+            this.zeroBtn15.Name = "zeroBtn15";
+            this.zeroBtn15.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn15.TabIndex = 41;
+            this.zeroBtn15.Text = "荒庄";
+            this.zeroBtn15.UseVisualStyleBackColor = true;
             // 
             // snapshot16
             // 
@@ -1000,6 +1178,15 @@
             this.snapshot16.Text = "拍照";
             this.snapshot16.UseVisualStyleBackColor = true;
             // 
+            // zeroBtn14
+            // 
+            this.zeroBtn14.Location = new System.Drawing.Point(445, 43);
+            this.zeroBtn14.Name = "zeroBtn14";
+            this.zeroBtn14.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn14.TabIndex = 40;
+            this.zeroBtn14.Text = "荒庄";
+            this.zeroBtn14.UseVisualStyleBackColor = true;
+            // 
             // manual15
             // 
             this.manual15.Location = new System.Drawing.Point(388, 69);
@@ -1008,6 +1195,15 @@
             this.manual15.TabIndex = 24;
             this.manual15.Text = "手动";
             this.manual15.UseVisualStyleBackColor = true;
+            // 
+            // zeroBtn13
+            // 
+            this.zeroBtn13.Location = new System.Drawing.Point(445, 18);
+            this.zeroBtn13.Name = "zeroBtn13";
+            this.zeroBtn13.Size = new System.Drawing.Size(52, 23);
+            this.zeroBtn13.TabIndex = 39;
+            this.zeroBtn13.Text = "荒庄";
+            this.zeroBtn13.UseVisualStyleBackColor = true;
             // 
             // snapshot15
             // 
@@ -1056,129 +1252,145 @@
             // 
             // bei16
             // 
-            this.bei16.Enabled = false;
+            this.bei16.BackColor = System.Drawing.Color.White;
             this.bei16.Location = new System.Drawing.Point(261, 98);
             this.bei16.Name = "bei16";
+            this.bei16.ReadOnly = true;
             this.bei16.Size = new System.Drawing.Size(62, 20);
             this.bei16.TabIndex = 18;
             // 
             // bei15
             // 
-            this.bei15.Enabled = false;
+            this.bei15.BackColor = System.Drawing.Color.White;
             this.bei15.Location = new System.Drawing.Point(261, 72);
             this.bei15.Name = "bei15";
+            this.bei15.ReadOnly = true;
             this.bei15.Size = new System.Drawing.Size(62, 20);
             this.bei15.TabIndex = 17;
             // 
             // bei14
             // 
-            this.bei14.Enabled = false;
+            this.bei14.BackColor = System.Drawing.Color.White;
             this.bei14.Location = new System.Drawing.Point(261, 46);
             this.bei14.Name = "bei14";
+            this.bei14.ReadOnly = true;
             this.bei14.Size = new System.Drawing.Size(62, 20);
             this.bei14.TabIndex = 16;
             // 
             // bei13
             // 
-            this.bei13.Enabled = false;
+            this.bei13.BackColor = System.Drawing.Color.White;
             this.bei13.Location = new System.Drawing.Point(261, 20);
             this.bei13.Name = "bei13";
+            this.bei13.ReadOnly = true;
             this.bei13.Size = new System.Drawing.Size(62, 20);
             this.bei13.TabIndex = 15;
             // 
             // xi16
             // 
-            this.xi16.Enabled = false;
+            this.xi16.BackColor = System.Drawing.Color.White;
             this.xi16.Location = new System.Drawing.Point(193, 98);
             this.xi16.Name = "xi16";
+            this.xi16.ReadOnly = true;
             this.xi16.Size = new System.Drawing.Size(62, 20);
             this.xi16.TabIndex = 14;
             // 
             // xi15
             // 
-            this.xi15.Enabled = false;
+            this.xi15.BackColor = System.Drawing.Color.White;
             this.xi15.Location = new System.Drawing.Point(193, 72);
             this.xi15.Name = "xi15";
+            this.xi15.ReadOnly = true;
             this.xi15.Size = new System.Drawing.Size(62, 20);
             this.xi15.TabIndex = 13;
             // 
             // xi14
             // 
-            this.xi14.Enabled = false;
+            this.xi14.BackColor = System.Drawing.Color.White;
             this.xi14.Location = new System.Drawing.Point(193, 46);
             this.xi14.Name = "xi14";
+            this.xi14.ReadOnly = true;
             this.xi14.Size = new System.Drawing.Size(62, 20);
             this.xi14.TabIndex = 12;
             // 
             // xi13
             // 
-            this.xi13.Enabled = false;
+            this.xi13.BackColor = System.Drawing.Color.White;
             this.xi13.Location = new System.Drawing.Point(193, 20);
             this.xi13.Name = "xi13";
+            this.xi13.ReadOnly = true;
             this.xi13.Size = new System.Drawing.Size(62, 20);
             this.xi13.TabIndex = 11;
             // 
             // nan16
             // 
-            this.nan16.Enabled = false;
+            this.nan16.BackColor = System.Drawing.Color.White;
             this.nan16.Location = new System.Drawing.Point(125, 98);
             this.nan16.Name = "nan16";
+            this.nan16.ReadOnly = true;
             this.nan16.Size = new System.Drawing.Size(62, 20);
             this.nan16.TabIndex = 10;
             // 
             // nan15
             // 
-            this.nan15.Enabled = false;
+            this.nan15.BackColor = System.Drawing.Color.White;
             this.nan15.Location = new System.Drawing.Point(125, 72);
             this.nan15.Name = "nan15";
+            this.nan15.ReadOnly = true;
             this.nan15.Size = new System.Drawing.Size(62, 20);
             this.nan15.TabIndex = 9;
             // 
             // nan14
             // 
-            this.nan14.Enabled = false;
+            this.nan14.BackColor = System.Drawing.Color.White;
             this.nan14.Location = new System.Drawing.Point(125, 46);
             this.nan14.Name = "nan14";
+            this.nan14.ReadOnly = true;
             this.nan14.Size = new System.Drawing.Size(62, 20);
             this.nan14.TabIndex = 8;
             // 
             // nan13
             // 
-            this.nan13.Enabled = false;
+            this.nan13.BackColor = System.Drawing.Color.White;
             this.nan13.Location = new System.Drawing.Point(125, 20);
             this.nan13.Name = "nan13";
+            this.nan13.ReadOnly = true;
             this.nan13.Size = new System.Drawing.Size(62, 20);
             this.nan13.TabIndex = 7;
             // 
             // dong16
             // 
-            this.dong16.Enabled = false;
+            this.dong16.BackColor = System.Drawing.Color.White;
             this.dong16.Location = new System.Drawing.Point(57, 98);
             this.dong16.Name = "dong16";
+            this.dong16.ReadOnly = true;
             this.dong16.Size = new System.Drawing.Size(62, 20);
             this.dong16.TabIndex = 6;
             // 
             // dong15
             // 
-            this.dong15.Enabled = false;
+            this.dong15.BackColor = System.Drawing.Color.White;
             this.dong15.Location = new System.Drawing.Point(57, 72);
             this.dong15.Name = "dong15";
+            this.dong15.ReadOnly = true;
             this.dong15.Size = new System.Drawing.Size(62, 20);
             this.dong15.TabIndex = 5;
             // 
             // dong14
             // 
-            this.dong14.Enabled = false;
+            this.dong14.BackColor = System.Drawing.Color.White;
             this.dong14.Location = new System.Drawing.Point(57, 46);
             this.dong14.Name = "dong14";
+            this.dong14.ReadOnly = true;
             this.dong14.Size = new System.Drawing.Size(62, 20);
             this.dong14.TabIndex = 4;
             // 
             // dong13
             // 
-            this.dong13.Enabled = false;
+            this.dong13.BackColor = System.Drawing.Color.White;
             this.dong13.Location = new System.Drawing.Point(57, 20);
             this.dong13.Name = "dong13";
+            this.dong13.ReadOnly = true;
             this.dong13.Size = new System.Drawing.Size(62, 20);
             this.dong13.TabIndex = 3;
             // 
@@ -1257,150 +1469,6 @@
             this.historyBtn.Text = "历史";
             this.historyBtn.UseVisualStyleBackColor = true;
             this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
-            // 
-            // zeroBtn1
-            // 
-            this.zeroBtn1.Location = new System.Drawing.Point(446, 18);
-            this.zeroBtn1.Name = "zeroBtn1";
-            this.zeroBtn1.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn1.TabIndex = 27;
-            this.zeroBtn1.Text = "荒庄";
-            this.zeroBtn1.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn2
-            // 
-            this.zeroBtn2.Location = new System.Drawing.Point(446, 43);
-            this.zeroBtn2.Name = "zeroBtn2";
-            this.zeroBtn2.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn2.TabIndex = 28;
-            this.zeroBtn2.Text = "荒庄";
-            this.zeroBtn2.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn3
-            // 
-            this.zeroBtn3.Location = new System.Drawing.Point(446, 69);
-            this.zeroBtn3.Name = "zeroBtn3";
-            this.zeroBtn3.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn3.TabIndex = 29;
-            this.zeroBtn3.Text = "荒庄";
-            this.zeroBtn3.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn4
-            // 
-            this.zeroBtn4.Location = new System.Drawing.Point(446, 94);
-            this.zeroBtn4.Name = "zeroBtn4";
-            this.zeroBtn4.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn4.TabIndex = 30;
-            this.zeroBtn4.Text = "荒庄";
-            this.zeroBtn4.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn8
-            // 
-            this.zeroBtn8.Location = new System.Drawing.Point(446, 94);
-            this.zeroBtn8.Name = "zeroBtn8";
-            this.zeroBtn8.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn8.TabIndex = 34;
-            this.zeroBtn8.Text = "荒庄";
-            this.zeroBtn8.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn7
-            // 
-            this.zeroBtn7.Location = new System.Drawing.Point(446, 69);
-            this.zeroBtn7.Name = "zeroBtn7";
-            this.zeroBtn7.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn7.TabIndex = 33;
-            this.zeroBtn7.Text = "荒庄";
-            this.zeroBtn7.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn6
-            // 
-            this.zeroBtn6.Location = new System.Drawing.Point(446, 43);
-            this.zeroBtn6.Name = "zeroBtn6";
-            this.zeroBtn6.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn6.TabIndex = 32;
-            this.zeroBtn6.Text = "荒庄";
-            this.zeroBtn6.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn5
-            // 
-            this.zeroBtn5.Location = new System.Drawing.Point(446, 18);
-            this.zeroBtn5.Name = "zeroBtn5";
-            this.zeroBtn5.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn5.TabIndex = 31;
-            this.zeroBtn5.Text = "荒庄";
-            this.zeroBtn5.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn12
-            // 
-            this.zeroBtn12.Location = new System.Drawing.Point(446, 94);
-            this.zeroBtn12.Name = "zeroBtn12";
-            this.zeroBtn12.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn12.TabIndex = 38;
-            this.zeroBtn12.Text = "荒庄";
-            this.zeroBtn12.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn11
-            // 
-            this.zeroBtn11.Location = new System.Drawing.Point(446, 69);
-            this.zeroBtn11.Name = "zeroBtn11";
-            this.zeroBtn11.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn11.TabIndex = 37;
-            this.zeroBtn11.Text = "荒庄";
-            this.zeroBtn11.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn10
-            // 
-            this.zeroBtn10.Location = new System.Drawing.Point(446, 43);
-            this.zeroBtn10.Name = "zeroBtn10";
-            this.zeroBtn10.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn10.TabIndex = 36;
-            this.zeroBtn10.Text = "荒庄";
-            this.zeroBtn10.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn9
-            // 
-            this.zeroBtn9.Location = new System.Drawing.Point(446, 18);
-            this.zeroBtn9.Name = "zeroBtn9";
-            this.zeroBtn9.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn9.TabIndex = 35;
-            this.zeroBtn9.Text = "荒庄";
-            this.zeroBtn9.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn16
-            // 
-            this.zeroBtn16.Location = new System.Drawing.Point(445, 94);
-            this.zeroBtn16.Name = "zeroBtn16";
-            this.zeroBtn16.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn16.TabIndex = 42;
-            this.zeroBtn16.Text = "荒庄";
-            this.zeroBtn16.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn15
-            // 
-            this.zeroBtn15.Location = new System.Drawing.Point(445, 69);
-            this.zeroBtn15.Name = "zeroBtn15";
-            this.zeroBtn15.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn15.TabIndex = 41;
-            this.zeroBtn15.Text = "荒庄";
-            this.zeroBtn15.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn14
-            // 
-            this.zeroBtn14.Location = new System.Drawing.Point(445, 43);
-            this.zeroBtn14.Name = "zeroBtn14";
-            this.zeroBtn14.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn14.TabIndex = 40;
-            this.zeroBtn14.Text = "荒庄";
-            this.zeroBtn14.UseVisualStyleBackColor = true;
-            // 
-            // zeroBtn13
-            // 
-            this.zeroBtn13.Location = new System.Drawing.Point(445, 18);
-            this.zeroBtn13.Name = "zeroBtn13";
-            this.zeroBtn13.Size = new System.Drawing.Size(52, 23);
-            this.zeroBtn13.TabIndex = 39;
-            this.zeroBtn13.Text = "荒庄";
-            this.zeroBtn13.UseVisualStyleBackColor = true;
             // 
             // ScoreBoard
             // 

@@ -68,7 +68,12 @@ namespace MahjongScroeBoard
                 }
             }
             //Console.WriteLine("Match Rate: " + currentMatchRate + (String)words[index]);
-            return (String)words[index];
+            if (index > -1)
+            {
+
+                return (String)words[index];
+            }
+            return "";
            
         }
         
@@ -102,10 +107,10 @@ namespace MahjongScroeBoard
                         table.Add(blocks[1].ToString(), blocks[0].ToString());
                     }
                 }
-                Console.WriteLine("===================");
-                Console.WriteLine(table["aaa"]);
-                Console.WriteLine(table["hu_jue_zhang"]);
-                Console.WriteLine("===================");
+                //Console.WriteLine("===================");
+                //Console.WriteLine(table["aaa"]);
+                //Console.WriteLine(table["hu_jue_zhang"]);
+                //Console.WriteLine("===================");
                 DirectoryInfo dir = new DirectoryInfo("fandata");
                 FileInfo[] files = dir.GetFiles();
                 for (int i = 0; i < files.Length; i++)
@@ -116,10 +121,10 @@ namespace MahjongScroeBoard
                         words.Add(files[i].Name.Substring(0, files[i].Name.Length - 4));
                     }
                 }
-                for (int i = 0; i < words.Count; i++)
-                {
-                    Console.WriteLine(words[i]);
-                }
+                //for (int i = 0; i < words.Count; i++)
+                //{
+                //    Console.WriteLine(words[i]);
+                //}
                     return true;
             }catch(Exception e){
                 Console.WriteLine(e.Message);
