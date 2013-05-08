@@ -51,9 +51,9 @@
             // dongBtn
             // 
             this.dongBtn.Enabled = false;
-            this.dongBtn.Location = new System.Drawing.Point(174, 89);
+            this.dongBtn.Location = new System.Drawing.Point(174, 82);
             this.dongBtn.Name = "dongBtn";
-            this.dongBtn.Size = new System.Drawing.Size(55, 55);
+            this.dongBtn.Size = new System.Drawing.Size(55, 51);
             this.dongBtn.TabIndex = 0;
             this.dongBtn.Text = "东";
             this.dongBtn.UseVisualStyleBackColor = true;
@@ -61,9 +61,9 @@
             // nanbtn
             // 
             this.nanbtn.Enabled = false;
-            this.nanbtn.Location = new System.Drawing.Point(235, 150);
+            this.nanbtn.Location = new System.Drawing.Point(235, 138);
             this.nanbtn.Name = "nanbtn";
-            this.nanbtn.Size = new System.Drawing.Size(55, 55);
+            this.nanbtn.Size = new System.Drawing.Size(55, 51);
             this.nanbtn.TabIndex = 1;
             this.nanbtn.Text = "南";
             this.nanbtn.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // xiBtn
             // 
             this.xiBtn.Enabled = false;
-            this.xiBtn.Location = new System.Drawing.Point(174, 210);
+            this.xiBtn.Location = new System.Drawing.Point(174, 194);
             this.xiBtn.Name = "xiBtn";
-            this.xiBtn.Size = new System.Drawing.Size(55, 55);
+            this.xiBtn.Size = new System.Drawing.Size(55, 51);
             this.xiBtn.TabIndex = 2;
             this.xiBtn.Text = "西";
             this.xiBtn.UseVisualStyleBackColor = true;
@@ -81,50 +81,46 @@
             // beiBtn
             // 
             this.beiBtn.Enabled = false;
-            this.beiBtn.Location = new System.Drawing.Point(113, 150);
+            this.beiBtn.Location = new System.Drawing.Point(113, 138);
             this.beiBtn.Name = "beiBtn";
-            this.beiBtn.Size = new System.Drawing.Size(55, 55);
+            this.beiBtn.Size = new System.Drawing.Size(55, 51);
             this.beiBtn.TabIndex = 4;
             this.beiBtn.Text = "北";
             this.beiBtn.UseVisualStyleBackColor = true;
             // 
             // dongName
             // 
-            this.dongName.Location = new System.Drawing.Point(153, 63);
+            this.dongName.Location = new System.Drawing.Point(153, 58);
             this.dongName.Name = "dongName";
-            this.dongName.Size = new System.Drawing.Size(100, 20);
+            this.dongName.Size = new System.Drawing.Size(100, 21);
             this.dongName.TabIndex = 5;
-            this.dongName.Text = "a";
             // 
             // xiName
             // 
-            this.xiName.Location = new System.Drawing.Point(153, 282);
+            this.xiName.Location = new System.Drawing.Point(153, 260);
             this.xiName.Name = "xiName";
-            this.xiName.Size = new System.Drawing.Size(100, 20);
+            this.xiName.Size = new System.Drawing.Size(100, 21);
             this.xiName.TabIndex = 6;
-            this.xiName.Text = "c";
             // 
             // nanName
             // 
-            this.nanName.Location = new System.Drawing.Point(302, 168);
+            this.nanName.Location = new System.Drawing.Point(302, 155);
             this.nanName.Name = "nanName";
-            this.nanName.Size = new System.Drawing.Size(100, 20);
+            this.nanName.Size = new System.Drawing.Size(100, 21);
             this.nanName.TabIndex = 7;
-            this.nanName.Text = "b";
             // 
             // beiName
             // 
-            this.beiName.Location = new System.Drawing.Point(7, 168);
+            this.beiName.Location = new System.Drawing.Point(7, 155);
             this.beiName.Name = "beiName";
-            this.beiName.Size = new System.Drawing.Size(100, 20);
+            this.beiName.Size = new System.Drawing.Size(100, 21);
             this.beiName.TabIndex = 8;
-            this.beiName.Text = "d";
             // 
             // fightBtn
             // 
-            this.fightBtn.Location = new System.Drawing.Point(134, 356);
+            this.fightBtn.Location = new System.Drawing.Point(134, 329);
             this.fightBtn.Name = "fightBtn";
-            this.fightBtn.Size = new System.Drawing.Size(137, 41);
+            this.fightBtn.Size = new System.Drawing.Size(137, 38);
             this.fightBtn.TabIndex = 9;
             this.fightBtn.Text = "开战";
             this.fightBtn.UseVisualStyleBackColor = true;
@@ -134,18 +130,18 @@
             // 
             this.entryInfo.AutoSize = true;
             this.entryInfo.ForeColor = System.Drawing.Color.Red;
-            this.entryInfo.Location = new System.Drawing.Point(132, 338);
+            this.entryInfo.Location = new System.Drawing.Point(132, 312);
             this.entryInfo.Name = "entryInfo";
-            this.entryInfo.Size = new System.Drawing.Size(0, 13);
+            this.entryInfo.Size = new System.Drawing.Size(0, 12);
             this.entryInfo.TabIndex = 10;
             this.entryInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Coral;
-            this.label1.Location = new System.Drawing.Point(63, 22);
+            this.label1.Location = new System.Drawing.Point(63, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(305, 21);
             this.label1.TabIndex = 11;
@@ -154,18 +150,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(111, 404);
+            this.label2.Location = new System.Drawing.Point(111, 373);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 13);
+            this.label2.Size = new System.Drawing.Size(185, 12);
             this.label2.TabIndex = 12;
             this.label2.Text = "~~~七星阁打造神奇QQ竞技平台~~~";
             // 
             // thridPartyCheck
             // 
             this.thridPartyCheck.AutoSize = true;
-            this.thridPartyCheck.Location = new System.Drawing.Point(96, 314);
+            this.thridPartyCheck.Location = new System.Drawing.Point(96, 290);
             this.thridPartyCheck.Name = "thridPartyCheck";
-            this.thridPartyCheck.Size = new System.Drawing.Size(86, 17);
+            this.thridPartyCheck.Size = new System.Drawing.Size(84, 16);
             this.thridPartyCheck.TabIndex = 13;
             this.thridPartyCheck.Text = "第三方裁判";
             this.thridPartyCheck.UseVisualStyleBackColor = true;
@@ -173,17 +169,17 @@
             // 
             // thirdPartyName
             // 
-            this.thirdPartyName.Location = new System.Drawing.Point(187, 312);
+            this.thirdPartyName.Location = new System.Drawing.Point(187, 288);
             this.thirdPartyName.Name = "thirdPartyName";
-            this.thirdPartyName.Size = new System.Drawing.Size(142, 20);
+            this.thirdPartyName.Size = new System.Drawing.Size(142, 21);
             this.thirdPartyName.TabIndex = 14;
             // 
             // dongRadio
             // 
             this.dongRadio.AutoSize = true;
-            this.dongRadio.Location = new System.Drawing.Point(260, 64);
+            this.dongRadio.Location = new System.Drawing.Point(260, 59);
             this.dongRadio.Name = "dongRadio";
-            this.dongRadio.Size = new System.Drawing.Size(49, 17);
+            this.dongRadio.Size = new System.Drawing.Size(47, 16);
             this.dongRadio.TabIndex = 15;
             this.dongRadio.TabStop = true;
             this.dongRadio.Text = "裁判";
@@ -192,9 +188,9 @@
             // xiRadio
             // 
             this.xiRadio.AutoSize = true;
-            this.xiRadio.Location = new System.Drawing.Point(260, 283);
+            this.xiRadio.Location = new System.Drawing.Point(260, 261);
             this.xiRadio.Name = "xiRadio";
-            this.xiRadio.Size = new System.Drawing.Size(49, 17);
+            this.xiRadio.Size = new System.Drawing.Size(47, 16);
             this.xiRadio.TabIndex = 16;
             this.xiRadio.TabStop = true;
             this.xiRadio.Text = "裁判";
@@ -203,9 +199,9 @@
             // nanRadio
             // 
             this.nanRadio.AutoSize = true;
-            this.nanRadio.Location = new System.Drawing.Point(329, 194);
+            this.nanRadio.Location = new System.Drawing.Point(329, 179);
             this.nanRadio.Name = "nanRadio";
-            this.nanRadio.Size = new System.Drawing.Size(49, 17);
+            this.nanRadio.Size = new System.Drawing.Size(47, 16);
             this.nanRadio.TabIndex = 17;
             this.nanRadio.TabStop = true;
             this.nanRadio.Text = "裁判";
@@ -214,9 +210,9 @@
             // beiRadio
             // 
             this.beiRadio.AutoSize = true;
-            this.beiRadio.Location = new System.Drawing.Point(31, 194);
+            this.beiRadio.Location = new System.Drawing.Point(31, 179);
             this.beiRadio.Name = "beiRadio";
-            this.beiRadio.Size = new System.Drawing.Size(49, 17);
+            this.beiRadio.Size = new System.Drawing.Size(47, 16);
             this.beiRadio.TabIndex = 18;
             this.beiRadio.TabStop = true;
             this.beiRadio.Text = "裁判";
@@ -224,9 +220,9 @@
             // 
             // EntryUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 422);
+            this.ClientSize = new System.Drawing.Size(414, 390);
             this.Controls.Add(this.beiRadio);
             this.Controls.Add(this.nanRadio);
             this.Controls.Add(this.xiRadio);
@@ -246,9 +242,9 @@
             this.Controls.Add(this.nanbtn);
             this.Controls.Add(this.dongBtn);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(430, 460);
+            this.MaximumSize = new System.Drawing.Size(430, 428);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(430, 460);
+            this.MinimumSize = new System.Drawing.Size(430, 428);
             this.Name = "EntryUI";
             this.Text = "Mahjone Score Board";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EntryUI_FormClosing);
